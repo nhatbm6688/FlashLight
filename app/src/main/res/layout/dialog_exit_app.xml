@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_black_radius"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/size20">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size20"
+        android:text="@string/exit_app_title"
+        android:textColor="@color/purple"
+        android:textSize="@dimen/size18"
+        app:fontFamily="@font/google_sans_medium" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size20"
+        android:layout_marginTop="@dimen/size6"
+        android:gravity="center"
+        android:text="@string/exit_app_message"
+        android:textColor="@color/text_main"
+        android:textSize="@dimen/size14" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnKeepUsingApp"
+        style="@style/StylePurpleButton"
+        android:layout_marginTop="@dimen/size10"
+        android:text="@string/keep_using_app" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnExitApp"
+        style="@style/StyleTransparentButton"
+        android:layout_marginTop="@dimen/size15"
+        android:text="@string/exit_app" />
+</LinearLayout>

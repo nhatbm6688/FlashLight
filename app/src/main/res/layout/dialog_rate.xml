@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_black_radius"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/size15"
+    android:paddingBottom="@dimen/size25">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        app:srcCompat="@mipmap/ic_header_rate"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size10"
+        android:layout_marginTop="@dimen/size10"
+        android:gravity="center"
+        android:text="@string/rate_title"
+        android:textColor="@color/color_main"
+        android:textSize="@dimen/size16"
+        app:fontFamily="@font/google_sans_medium" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size10"
+        android:layout_marginTop="@dimen/size10"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/rate_message"
+        android:textColor="@color/text_main"
+        android:textSize="@dimen/size14" />
+
+    <per.wsj.library.AndRatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/size20"
+        app:bgDrawable="@drawable/ic_star_normal"
+        app:keepOriginColor="true"
+        app:starDrawable="@drawable/ic_star_selected"
+        app:starSpacing="@dimen/size10" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRate"
+        style="@style/StylePurpleButton"
+        android:layout_marginTop="@dimen/size20"
+        android:includeFontPadding="false"
+        android:text="@string/rate_us_now"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size14"
+        app:fontFamily="@font/google_sans_medium" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCancel"
+        style="@style/StyleTransparentButton"
+        android:layout_marginTop="@dimen/size5"
+        android:includeFontPadding="false"
+        android:text="@string/cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size14"
+        app:fontFamily="@font/google_sans_medium" />
+</LinearLayout>

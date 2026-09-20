@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/tool_bar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnLanguage"
+        style="@style/ItemSetting"
+        android:text="@string/language" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnRateUs"
+        style="@style/ItemSetting"
+        android:text="@string/rate_us" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnShareApp"
+        style="@style/ItemSetting"
+        android:text="@string/share_app" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnPrivacyPolicy"
+        style="@style/ItemSetting"
+        android:text="@string/privacy_policy" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnPolicySetting"
+        style="@style/ItemSetting"
+        android:text="@string/policy_setting" />
+</LinearLayout>

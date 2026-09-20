@@ -1,0 +1,9 @@
+com.af.network-pngs-0 C:\MyCode\AficaGlobalCode\FlashLight\network\build\generated\res\pngs\debug
+com.af.network-updated_navigation_xml-1 C:\MyCode\AficaGlobalCode\FlashLight\network\build\generated\updated_navigation_xml\debug
+com.af.network-mergeDebugResources-2 C:\MyCode\AficaGlobalCode\FlashLight\network\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.af.network-mergeDebugResources-3 C:\MyCode\AficaGlobalCode\FlashLight\network\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.af.network-debug-4 C:\MyCode\AficaGlobalCode\FlashLight\network\build\intermediates\merged_res\debug\mergeDebugResources
+com.af.network-debug-5 C:\MyCode\AficaGlobalCode\FlashLight\network\build\intermediates\packaged_res\debug\packageDebugResources
+com.af.network-debug-6 C:\MyCode\AficaGlobalCode\FlashLight\network\src\debug\res
+com.af.network-main-7 C:\MyCode\AficaGlobalCode\FlashLight\network\src\main\res
+gradleHome-0 C:\Users\Acer\.gradle

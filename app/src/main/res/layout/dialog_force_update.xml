@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_black_radius"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/size20"
+    android:paddingBottom="@dimen/size20">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="@dimen/size80"
+        android:layout_height="@dimen/size80"
+        app:riv_corner_radius="@dimen/size12"
+        app:riv_border_width="@dimen/size1"
+        app:riv_border_color="@color/pink"
+        android:layout_marginTop="@dimen/size20"
+        android:src="@mipmap/ic_launcher" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size15"
+        android:text="@string/force_update_title"
+        android:textColor="@color/text_main"
+        android:textSize="@dimen/size18"
+        app:fontFamily="@font/google_sans_medium" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size8"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:text="@string/force_update_message"
+        android:textColor="@color/gray3"
+        android:textSize="@dimen/size14" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUpdate"
+        style="@style/StylePurpleButton"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="@dimen/size24"
+        android:text="@string/force_update_button" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnExit"
+        style="@style/StyleTransparentButton"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/size10"
+        android:text="@string/exit" />
+
+</LinearLayout>

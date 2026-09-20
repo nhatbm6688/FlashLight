@@ -1,0 +1,72 @@
+name: Build Release APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      apkFileName:
+        description: 'Tên file APK (không cần .apk, để trống thì giữ tên mặc định)'
+        required: false
+        default: ''
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      - name: Remove machine-specific Gradle JDK path
+        run: sed -i '/org.gradle.java.home/d' gradle.properties
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build appProduct release APK
+        run: ./gradlew assembleAppProductRelease --no-daemon
+
+      - name: Rename APK file
+        if: ${{ inputs.apkFileName != '' }}
+        run: |
+          cd app/build/outputs/apk/appProduct/release
+          for f in *.apk; do
+            mv "$f" "${{ inputs.apkFileName }}.apk"
+          done
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: app/build/outputs/apk/appProduct/release/*.apk
+
+      - name: Notify Discord
+        if: always()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            echo "DISCORD_WEBHOOK_URL secret is empty — set it in repo Settings > Secrets and variables > Actions"
+            exit 1
+          fi
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ "${{ job.status }}" = "success" ]; then
+            MESSAGE="✅ Build APK thành công cho **${{ github.repository }}** (branch: \`${{ github.ref_name }}\`). Tải artifact tại: $RUN_URL"
+          else
+            MESSAGE="❌ Build APK thất bại cho **${{ github.repository }}** — xem chi tiết: $RUN_URL"
+          fi
+          HTTP_CODE=$(curl -s -o response.txt -w "%{http_code}" \
+            -H "Content-Type: application/json" \
+            -d "$(jq -n --arg content "$MESSAGE" '{content: $content}')" \
+            "$DISCORD_WEBHOOK_URL")
+          echo "Discord response code: $HTTP_CODE"
+          cat response.txt
+          if [ "$HTTP_CODE" -ge 300 ]; then
+            exit 1
+          fi

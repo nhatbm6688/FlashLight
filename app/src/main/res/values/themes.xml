@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="Base.Theme.FlashLight" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimaryDark">#FFF4F9</item>
+        <item name="android:statusBarColor">#FFF4F9</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:textViewStyle">@style/Widget.App.TextView</item>
+    </style>
+
+    <style name="Theme.FlashLight" parent="Base.Theme.FlashLight">
+        <item name="fontFamily">@font/google_sans</item>
+    </style>
+
+</resources>
+

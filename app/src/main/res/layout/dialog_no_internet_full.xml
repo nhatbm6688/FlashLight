@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/size40">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size25"
+        app:srcCompat="@mipmap/bg_no_wifi" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size20"
+        android:text="@string/connection_lost"
+        android:textColor="@color/purple"
+        android:textSize="@dimen/size18"
+        app:fontFamily="@font/google_sans_medium" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size20"
+        android:layout_marginTop="@dimen/size6"
+        android:gravity="center"
+        android:text="@string/connection_lost_message"
+        android:textColor="@color/text_main"
+        android:textSize="@dimen/size14" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGoToSetting"
+        style="@style/StylePurpleButton"
+        android:layout_marginTop="@dimen/size30"
+        android:text="@string/go_to_setting" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCancel"
+        style="@style/StyleTransparentButton"
+        android:layout_marginTop="@dimen/size15"
+        android:text="@string/cancel" />
+</LinearLayout>

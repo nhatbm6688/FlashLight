@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_main">
+    android:background="@color/obd_bg_black">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpOnBoarding"
@@ -11,39 +11,47 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnNext"
-        style="@style/StylePurpleButton"
-        android:layout_width="wrap_content"
-        android:layout_marginBottom="@dimen/size10"
-        android:includeFontPadding="false"
-        android:paddingHorizontal="@dimen/size20"
-        android:text="@string/next"
-        app:fontFamily="@font/google_sans_medium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-        android:id="@+id/dots_indicator"
-        android:layout_width="wrap_content"
+    <!-- Cụm điều hướng: Dots Indicator + Nút Next gom 1 nhóm (mặc định cách đáy size250 ở trang OBD1) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clNavigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/size15"
-        app:dotsColor="@color/gray"
-        app:dotsCornerRadius="8dp"
-        app:dotsSize="10dp"
-        app:dotsSpacing="4dp"
-        app:dotsWidthFactor="1"
-        app:layout_constraintBottom_toBottomOf="@+id/btnNext"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnNext"
-        app:progressMode="false"
-        app:selectedDotColor="@color/purple" />
+        android:layout_marginBottom="@dimen/size250"
+        android:paddingHorizontal="@dimen/size20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/dots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dotsColor="@color/white"
+            app:dotsCornerRadius="@dimen/size8"
+            app:dotsSize="@dimen/size8"
+            app:dotsSpacing="@dimen/size2"
+            app:dotsWidthFactor="2.8"
+            app:layout_constraintBottom_toBottomOf="@+id/btnNext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnNext"
+            app:progressMode="false"
+            app:selectedDotColor="@color/yellow" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNext"
+            style="@style/StyleOBDButton"
+            android:layout_width="wrap_content"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="@dimen/size24"
+            android:text="@string/next"
+            app:fontFamily="@font/plus_jakarta_sans_semi_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

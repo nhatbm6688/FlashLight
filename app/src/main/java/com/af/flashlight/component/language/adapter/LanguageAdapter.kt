@@ -2,6 +2,7 @@ package com.af.flashlight.component.language.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.af.flashlight.R
 import com.af.flashlight.base.adapter.BaseAdapter
 import com.af.flashlight.data.model.Language
@@ -23,22 +24,33 @@ class LanguageAdapter : BaseAdapter<Language, ItemLanguageBinding>() {
 
     override fun binData(viewBinding: ItemLanguageBinding, item: Language, position: Int) {
         viewBinding.apply {
+            if (item.flagRes != 0) {
+                ivFlag.setImageResource(item.flagRes)
+                ivFlag.visible()
+            } else {
+                ivFlag.gone()
+            }
+
             tvTitle.setText(item.nameRes)
+
             if (item.languageCode == "en" && isFromSplash && selectedLanguage() == null) {
                 lottieView.visible()
             } else {
                 lottieView.gone()
             }
+
             if (item.selected) {
+                tvTitle.setTextColor(ContextCompat.getColor(root.context, R.color.yellow))
                 imgCheckbox.setImageResource(R.drawable.ic_checkbox_checked)
             } else {
+                tvTitle.setTextColor(ContextCompat.getColor(root.context, R.color.white))
                 imgCheckbox.setImageResource(R.drawable.ic_checkbox_normal)
             }
+
             root.setOnClickListener {
                 lottieView.gone()
                 onClick?.invoke(item)
             }
-
         }
     }
 

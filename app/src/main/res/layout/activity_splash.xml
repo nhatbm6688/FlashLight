@@ -5,66 +5,96 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_main">
 
+    <!-- 1. Background phủ kín 100% toàn màn hình -->
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
+        android:id="@+id/ivBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/bg_splash" />
 
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/appCompatImageView"
-        android:layout_width="@dimen/size113"
-        android:layout_height="@dimen/size113"
-        android:layout_marginBottom="@dimen/size60"
-        android:src="@drawable/logo_splash"
-        app:layout_constraintBottom_toTopOf="@+id/tvAds"
+    <!-- 2. Cụm Logo + Tên App căn giữa dọc màn hình -->
+    <LinearLayout
+        android:id="@+id/llCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/llBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/appCompatImageView2"
-        app:riv_corner_radius="@dimen/size10" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size10"
-        android:gravity="center"
-        android:text="@string/app_name"
-        android:textColor="@color/purple"
-        android:textSize="@dimen/size20"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/appCompatImageView2"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/size113"
+            android:layout_height="@dimen/size113"
+            android:src="@drawable/logo_splash"
+            app:riv_corner_radius="@dimen/size20" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvAds"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size15"
+            android:text="@string/app_name"
+            android:textColor="@color/yellow"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
+    </LinearLayout>
+
+    <!-- 3. Cụm Đáy: % -> Thanh ProgressBar -> Text Ads -->
+    <LinearLayout
+        android:id="@+id/llBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/progressBar"
-        android:layout_marginBottom="@dimen/size5"
-        android:gravity="center"
-        android:text="@string/action_contain_ads"
-        android:textColor="@color/text_main"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="@dimen/size20"
-        android:layout_marginBottom="@dimen/size15"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/color_main"
+        android:layout_marginHorizontal="@dimen/size30"
+        android:layout_marginBottom="@dimen/size30"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Text Phần trăm (Ví dụ: 35%) -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLoadingPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/size14"
+            android:textStyle="bold"
+            app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
+
+        <!-- Thanh ProgressBar ngang mảnh bo góc theo thiết kế -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="@dimen/size8"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/bg_splash_progress" />
+
+        <!-- Dòng Text Ads nằm dưới cùng -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size12"
+            android:gravity="center"
+            android:text="@string/action_contain_ads"
+            android:textColor="#B3FFFFFF"
+            android:textSize="@dimen/size16"
+            app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

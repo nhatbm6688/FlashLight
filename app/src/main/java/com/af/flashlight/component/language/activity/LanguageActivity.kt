@@ -48,31 +48,36 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
         isFromSplash = intent.getBooleanExtra(Constant.KEY_INTENT_FROM_SPLASH, false)
         toolBar.btnBack.isVisible = !isFromSplash
         toolBar.tvTitle.text = resources.getString(R.string.language)
+        toolBar.btnAction.text = resources.getString(R.string.save)
 
         toolBar.btnAction.visible()
-        toolBar.btnAction.isEnabled = false
+        toolBar.btnAction.isEnabled = !isFromSplash
+        lottieView.gone()
 
         rcvLanguage.adapter = languageAdapter
         languageAdapter.onClick = {
-            toolBar.btnAction.gone()
-            var timeDelay = 0L
-            if (isFromSplash && !isLoadingShowed) {
-                progressBar.visible()
-                timeDelay = 2000
-                isLoadingShowed = true
-            } else {
-                progressBar.gone()
-            }
-            lifecycleScope.launch {
-                delay(timeDelay.milliseconds)
-                progressBar.gone()
-                if (isFromSplash) lottieView.visible()
-                toolBar.btnAction.isEnabled = true
-                toolBar.btnAction.visible()
-            }
             languageAdapter.selectLanguage(it.languageCode)
             languageAdapter.selectedLanguage()?.let { languageModel ->
                 selectLanguageModel = languageModel
+            }
+
+            if (isFromSplash && !isLoadingShowed) {
+                isLoadingShowed = true
+                toolBar.btnAction.gone()
+                progressBar.visible()
+                lifecycleScope.launch {
+                    delay(1200L)
+                    progressBar.gone()
+                    toolBar.btnAction.isEnabled = true
+                    toolBar.btnAction.visible()
+                    lottieView.visible() // Stage 2: Trỏ tay lên nút Save
+                }
+            } else {
+                toolBar.btnAction.isEnabled = true
+                toolBar.btnAction.visible()
+                if (isFromSplash) {
+                    lottieView.visible() // Stage 2: Trỏ tay lên nút Save
+                }
             }
         }
 

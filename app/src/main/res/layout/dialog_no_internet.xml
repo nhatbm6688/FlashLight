@@ -3,46 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_black_radius"
+    android:background="@drawable/bg_dialog_no_internet"
     android:gravity="center"
     android:orientation="vertical"
+    android:paddingTop="@dimen/size30"
     android:paddingBottom="@dimen/size20">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size25"
-        app:srcCompat="@mipmap/bg_no_wifi" />
+        app:srcCompat="@drawable/ic_no_internet" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView5"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size20"
+        android:layout_marginTop="@dimen/size24"
         android:text="@string/connection_lost"
-        android:textColor="@color/purple"
+        android:textColor="@color/text_main"
         android:textSize="@dimen/size18"
-        app:fontFamily="@font/google_sans_medium" />
+        app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/size20"
-        android:layout_marginTop="@dimen/size6"
+        android:layout_marginHorizontal="@dimen/size25"
+        android:layout_marginTop="@dimen/size8"
         android:gravity="center"
         android:text="@string/connection_lost_message"
-        android:textColor="@color/text_main"
+        android:textColor="@color/gray"
         android:textSize="@dimen/size14" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnRetry"
-        style="@style/StylePurpleButton"
-        android:layout_marginTop="@dimen/size30"
-        android:text="@string/retry" />
+        android:id="@+id/btnGoToSetting"
+        style="@style/StyleYellowButton"
+        android:layout_marginTop="@dimen/size25"
+        android:text="@string/go_to_setting" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCancel"
         style="@style/StyleTransparentButton"
-        android:layout_marginTop="@dimen/size15"
+        android:layout_marginTop="@dimen/size10"
         android:text="@string/cancel" />
 </LinearLayout>

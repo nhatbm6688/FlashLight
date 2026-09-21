@@ -4,18 +4,19 @@
     <string name="facebook_client_token" translatable="false">9c816e7374cbb1965672cc08a1da9261</string>
 
     <string name="english">English</string>
-    <string name="vietnamese">Vietnamese</string>
+    <string name="vietnamese">Việt Nam</string>
     <string name="hindi">Hindi</string>
     <string name="spanish">Spanish</string>
     <string name="french">French</string>
-    <string name="japanese">Japanese</string>
-    <string name="korean">Korean</string>
+    <string name="japanese">Japan</string>
+    <string name="korean">Korea</string>
     <string name="turkish">Turkish</string>
     <string name="german">German</string>
     <string name="portuguese">Portuguese</string>
     <string name="italian">Italian</string>
-    <string name="indonesian">Indonesian</string>
+    <string name="indonesian">Indonesia</string>
     <string name="russian">Russian</string>
+    <string name="chinese">Chinese</string>
     <string name="arabic">Arabic</string>
     <string name="thai">Thai</string>
     <string name="filipino">Filipino</string>
@@ -31,24 +32,29 @@
 
     <string name="language">Language</string>
     <string name="next">Next</string>
+    <string name="save">Save</string>
     <string name="action_contain_ads">This action may contain advertising</string>
     <string name="choose_one">Choose one</string>
     <string name="done">Done</string>
 
-    <string name="connection_lost">Oops! No Internet</string>
-    <string name="connection_lost_message">Looks like your connection is offline.</string>
-    <string name="go_to_setting">Go To Setting</string>
+    <string name="connection_lost">Oops, No Internet Connection</string>
+    <string name="connection_lost_message">Make sure wifi or cellular data is turned on and then try again.</string>
+    <string name="go_to_setting">Go to Settings</string>
     <string name="cancel">Cancel</string>
     <string name="retry">Retry</string>
 
-    <string name="title_onboarding_1">Swipe For More.</string>
-    <string name="des_onboarding_1">Find captivating new stories with every single swipe.</string>
-    <string name="title_onboarding_2">Discover Stories You\'ll Love.</string>
-    <string name="des_onboarding_2">Swipe hot short series. Discover your next obsession.</string>
-    <string name="title_onboarding_3">Short Clips, Deep Emotions.</string>
-    <string name="des_onboarding_3">Dive into romance, thrilling twists, and surprises with each episode.</string>
-    <string name="title_onboarding_4">Find the Best Movies </string>
-    <string name="des_onboarding_4">Browse top-rated picks and choose your next favorite.</string>
+    <string name="title_onboarding_1">Bright Flashlight</string>
+    <string name="des_onboarding_1">Turn your phone into a powerful flashlight anytime.</string>
+    <string name="title_onboarding_2">SOS &amp; DJ Flash</string>
+    <string name="des_onboarding_2">Use SOS mode for emergencies for DJ mode for parties.</string>
+    <string name="title_onboarding_3">LED Banner</string>
+    <string name="des_onboarding_3">Display scrolling LED text with customizable colors and effects.</string>
+    <string name="title_onboarding_4">Screen Light</string>
+    <string name="des_onboarding_4">Use your display as a bright colored light source</string>
+
+    <string name="home">Home</string>
+    <string name="for_you">For You</string>
+    <string name="flashlightTitle">Flashlight</string>
 
     <string name="settings">Settings</string>
     <string name="rate_1_title">Oh no! We\'re sorry to hear that.</string>
@@ -117,4 +123,19 @@
     <string name="keep_using_app">Keep Using App</string>
     <string name="exit_app">Exit App</string>
     <string name="exit">Exit</string>
+
+    <string name="permission_title">Permission</string>
+    <string name="permission_description">%s is requesting access to provide you with the best service possible</string>
+    <string name="permission_camera">Camera</string>
+    <string name="continue_text">Continue</string>
+    <string name="flashlight">Flash Light</string>
+    <string name="sos_light">SOS Light</string>
+    <string name="dj_mode">DJ Mode</string>
+    <string name="screen_light">Screenlight</string>
+    <string name="led">LED</string>
+    <string name="flash_alert">Flash Alert</string>
+    <string name="state_on">ON</string>
+    <string name="state_off">OFF</string>
+    <string name="flash_not_supported">Flashlight is not supported on this device</string>
+    <string name="coming_soon">Coming soon</string>
 </resources>

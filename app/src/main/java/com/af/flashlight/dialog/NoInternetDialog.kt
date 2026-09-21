@@ -1,13 +1,17 @@
 package com.af.flashlight.dialog
 
 import android.content.Context
+import android.content.Intent
+import android.provider.Settings
 import com.af.flashlight.base.dialog.BaseDialog
 import com.af.flashlight.databinding.DialogNoInternetBinding
 
 class NoInternetDialog(private val context: Context) :
     BaseDialog<DialogNoInternetBinding>(context) {
 
-    var onRetry: () -> Unit = {}
+    var onGoToSetting: () -> Unit = {
+        context.startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
+    }
     var onCancel: () -> Unit = {}
 
     override fun provideViewBinding(): DialogNoInternetBinding {
@@ -18,9 +22,9 @@ class NoInternetDialog(private val context: Context) :
         super.initViews()
         setCancelable(false)
 
-        btnRetry.setOnClickListener {
+        btnGoToSetting.setOnClickListener {
             dismiss()
-            onRetry.invoke()
+            onGoToSetting.invoke()
         }
 
         btnCancel.setOnClickListener {

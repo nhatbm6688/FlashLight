@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#0D0D0D</color>
+    <color name="obd_bg_black">#111111</color>
     <color name="white">#FFFFFF</color>
-    <color name="color_main">#6A5C9C</color>
+    <color name="color_main">#FFD54F</color>
     <color name="text_main">#FFFFFF</color>
     <color name="text_gray">#666D80</color>
     <color name="text_black">#191919</color>
@@ -11,11 +12,34 @@
     <color name="transparent">#00000000</color>
     <color name="transparent_50">#80000000</color>
     <color name="gray_transparent">#1A747172</color>
-    <color name="gray">#8C8C8C</color>
-    <color name="gray3">#ECEFF3</color>
-    <color name="gray4">#C4C4C4</color>
+    <color name="gray">#C1C7D0</color>
+    <color name="gray3">#A4ACB9</color>
+    <color name="gray4">#36394A</color>
     <color name="divider">#3B3B3B</color>
     <color name="purple">#D9CEFF</color>
     <color name="purple2">#877CB1</color>
-    <color name="yellow">#FACE15</color>
+    <color name="obd_text_description">#A0A4AE</color>
+    <color name="obd_gradient_start">#00111111</color>
+    <color name="yellow_btn_gradient_start">#FFC81A</color>
+    <color name="yellow_btn_gradient_end">#D79B1D</color>
+    <color name="yellow">#FFD54F</color>
+    <color name="color_flash_yellow_start">#FFD54F</color>
+    <color name="color_flash_yellow_end">#CA8A04</color>
+    <color name="color_flash_glow_yellow">#80FFD54F</color>
+    <color name="color_flash_glow_yellow_outer">#00FFD54F</color>
+    <color name="color_bottom_nav_active_bg">#1AFFD54F</color>
+    <color name="color_bottom_nav_active_shadow">#26FFD54F</color>
+    <color name="color_bottom_nav_active_shadow_soft">#0DFFD54F</color>
+    <color name="color_sos_start">#FF5252</color>
+    <color name="color_sos_end">#D32F2F</color>
+    <color name="color_sos_glow">#80FF5252</color>
+    <color name="color_dj_start">#E040FB</color>
+    <color name="color_dj_end">#7B1FA2</color>
+    <color name="color_dj_glow">#80E040FB</color>
+    <color name="color_power_btn_off">#36394A</color>
+    <color name="color_power_btn_off_stroke">#333748</color>
+    <color name="color_tab_inactive_bg">#22262C</color>
+    <color name="color_tab_inactive_text">#7E828F</color>
+    <color name="color_bottom_nav_bg">#141519</color>
+    <color name="color_bottom_nav_unselected">#7E828F</color>
 </resources>

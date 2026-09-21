@@ -1,52 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/obd_bg_black">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clOnboarding"
+    <!-- 1. Ảnh minh họa phía trên -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgBoarding"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/llTextGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/bg_onboarding_1" />
+
+    <!-- 2. Gradient overlay mờ dần vào background cho OBD -->
+    <View
+        android:id="@+id/viewGradient"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/size140"
+        android:background="@drawable/bg_gradient_onboarding"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBoarding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- 3. Nhóm Text (Title + Description) gom thành 1 cụm thống nhất -->
+    <LinearLayout
+        android:id="@+id/llTextGroup"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgBoarding"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@mipmap/bg_onboarding_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size45"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/size25"
+        app:layout_constraintBottom_toTopOf="@+id/flNativeAd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/size15"
-            android:layout_marginTop="@dimen/size10"
-            android:layout_marginBottom="@dimen/size3"
+            android:gravity="center"
             android:text="@string/title_onboarding_1"
-            android:textColor="@color/purple"
+            android:textColor="@color/white"
             android:textSize="@dimen/size20"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgBoarding" />
+            app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvDescription"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/size15"
-            android:layout_marginBottom="@dimen/size50"
+            android:layout_marginTop="@dimen/size8"
+            android:gravity="center"
             android:text="@string/des_onboarding_1"
-            android:textColor="@color/text_main"
+            android:textColor="@color/obd_text_description"
             android:textSize="@dimen/size14"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
+    </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- 4. FrameLayout chứa Native Ad ở nửa dưới (OBD 1 & 3) -->
+    <FrameLayout
+        android:id="@+id/flNativeAd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size260"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

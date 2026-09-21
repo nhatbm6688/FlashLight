@@ -3,40 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D0D0D"
+    android:background="@color/black"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingBottom="@dimen/size40">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size25"
-        app:srcCompat="@mipmap/bg_no_wifi" />
+    <FrameLayout
+        android:layout_width="@dimen/size120"
+        android:layout_height="@dimen/size120"
+        android:background="@drawable/bg_no_internet_icon_card">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_no_internet" />
+    </FrameLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView5"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size20"
+        android:layout_marginTop="@dimen/size24"
         android:text="@string/connection_lost"
-        android:textColor="@color/purple"
+        android:textColor="@color/text_main"
         android:textSize="@dimen/size18"
-        app:fontFamily="@font/google_sans_medium" />
+        app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/size20"
-        android:layout_marginTop="@dimen/size6"
+        android:layout_marginHorizontal="@dimen/size25"
+        android:layout_marginTop="@dimen/size8"
         android:gravity="center"
         android:text="@string/connection_lost_message"
-        android:textColor="@color/text_main"
+        android:textColor="@color/gray"
         android:textSize="@dimen/size14" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnGoToSetting"
-        style="@style/StylePurpleButton"
+        style="@style/StyleYellowButton"
         android:layout_marginTop="@dimen/size30"
         android:text="@string/go_to_setting" />
 

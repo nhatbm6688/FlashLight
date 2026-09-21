@@ -9,11 +9,13 @@
         <item name="android:splitMotionEvents">false</item>
         <item name="android:windowEnableSplitTouch">false</item>
         <item name="android:textViewStyle">@style/Widget.App.TextView</item>
+        <item name="fontFamily">@font/plus_jakarta_sans_semi_bold</item>
+        <item name="android:fontFamily">@font/plus_jakarta_sans_semi_bold</item>
     </style>
 
     <style name="Theme.FlashLight" parent="Base.Theme.FlashLight">
-        <item name="fontFamily">@font/google_sans</item>
+        <item name="fontFamily">@font/plus_jakarta_sans_semi_bold</item>
+        <item name="android:fontFamily">@font/plus_jakarta_sans_semi_bold</item>
     </style>
 
 </resources>
-

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer Soft Blur Halo Layer (Drop Shadow Blur ~13.85, Color #FFD54F 5%) -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp" />
+            <solid android:color="@color/color_bottom_nav_active_shadow_soft" />
+        </shape>
+    </item>
+
+    <!-- Mid Shadow Layer (Color #FFD54F 10%) -->
+    <item
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="15dp" />
+            <solid android:color="@color/color_bottom_nav_active_bg" />
+        </shape>
+    </item>
+
+    <!-- Core Pill: Fill #FFD54F 10% with Shadow Stroke #FFD54F 15% -->
+    <item
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+            <solid android:color="@color/color_bottom_nav_active_bg" />
+            <stroke
+                android:width="0dp"
+                android:color="@color/color_bottom_nav_active_shadow" />
+        </shape>
+    </item>
+</layer-list>

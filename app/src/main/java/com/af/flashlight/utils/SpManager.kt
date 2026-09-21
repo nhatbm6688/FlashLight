@@ -74,7 +74,7 @@ class SpManager(private val preferences: SharedPreferences) {
 
     fun getLanguage(): Language {
         return preferences.getString(Constant.KEY_SP_CURRENT_LANGUAGE, "")?.toLanguageModel()
-            ?: Language("en", R.string.english)
+            ?: Language("en", R.string.english, R.mipmap.ic_flag_us)
     }
 
     fun setLanguageChosen() {

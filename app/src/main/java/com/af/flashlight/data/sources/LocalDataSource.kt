@@ -11,31 +11,20 @@ import javax.inject.Inject
 class LocalDataSource @Inject constructor() {
     fun getListLanguage(): List<Language> {
         return listOf(
-            Language("en", R.string.english),
-            Language("es", R.string.spanish),
-            Language("hi", R.string.hindi),
-            Language("ko", R.string.korean),
-            Language("ja", R.string.japanese),
-            Language("de", R.string.german),
-            Language("pt", R.string.portuguese),
-            Language("fr", R.string.french),
-            Language("it", R.string.italian),
-            Language("in", R.string.indonesian),
-            Language("ru", R.string.russian),
-            Language("tr", R.string.turkish),
-            Language("zh-TW", R.string.chinese_traditional),
-            Language("ar", R.string.arabic),
-            Language("vi", R.string.vietnamese),
-            Language("th", R.string.thai),
-            Language("fil", R.string.filipino),
-            Language("ms", R.string.malay),
-            Language("pl", R.string.polish),
-            Language("bn", R.string.bengali),
-            Language("ta", R.string.tamil),
-            Language("te", R.string.telugu),
-            Language("ro", R.string.romanian),
-            Language("cs", R.string.czech),
-            Language("el", R.string.greek)
+            Language("en", R.string.english, R.mipmap.ic_flag_us),
+            Language("es", R.string.spanish, R.mipmap.ic_flag_es),
+            Language("hi", R.string.hindi, R.mipmap.ic_flag_in),
+            Language("ko", R.string.korean, R.mipmap.ic_flag_kr),
+            Language("ja", R.string.japanese, R.mipmap.ic_flag_jp),
+            Language("de", R.string.german, R.mipmap.ic_flag_de),
+            Language("pt", R.string.portuguese, R.mipmap.ic_flag_pt),
+            Language("fr", R.string.french, R.mipmap.ic_flag_fr),
+            Language("it", R.string.italian, R.mipmap.ic_flag_it),
+            Language("in", R.string.indonesian, R.mipmap.ic_flag_id),
+            Language("vi", R.string.vietnamese, R.mipmap.ic_flag_vn),
+            Language("ru", R.string.russian, R.mipmap.ic_flag_ru),
+            Language("tr", R.string.turkish, R.mipmap.ic_flag_tr),
+            Language("zh-TW", R.string.chinese, R.mipmap.ic_flag_cn)
         )
     }
 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/obd_bg_black">
+
+    <!-- 1. Ảnh minh họa phía trên -->
+
+    <!-- 2. Gradient overlay mờ dần vào background -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgBoarding"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/llTextGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:src="@mipmap/bg_onboarding_1" />
+
+    <View
+        android:id="@+id/viewGradient"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/size140"
+        android:background="@drawable/bg_gradient_onboarding"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBoarding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- 3. Nhóm Text (Title + Description) cách khung Native Ad 65dp (chừa 44dp cho nút Next + 21dp khoảng cách thoáng) -->
+    <LinearLayout
+        android:id="@+id/llTextGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size65"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/size25"
+        app:layout_constraintBottom_toTopOf="@+id/flNativeAd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/title_onboarding_1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size20"
+            android:textStyle="bold"
+            app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size8"
+            android:gravity="center"
+            android:text="@string/des_onboarding_1"
+            android:textColor="@color/obd_text_description"
+            android:textSize="@dimen/size14"
+            app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
+    </LinearLayout>
+
+    <!-- 4. FrameLayout chứa Native Ad cao 250dp ở nửa dưới -->
+    <FrameLayout
+        android:id="@+id/flNativeAd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size250"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:background="#22262F"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

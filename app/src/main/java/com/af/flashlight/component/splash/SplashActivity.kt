@@ -1,18 +1,22 @@
 package com.af.flashlight.component.splash
 
 import android.content.Intent
+import android.provider.Settings
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.af.flashlight.BuildConfig
 import com.af.flashlight.base.activity.BaseActivity
 import com.af.flashlight.component.language.activity.LanguageActivity
 import com.af.flashlight.component.main.activity.MainActivity
+import com.af.flashlight.component.permission.PermissionActivity
 import com.af.flashlight.databinding.ActivitySplashBinding
 import com.af.flashlight.dialog.ForceUpdateDialog
 import com.af.flashlight.dialog.NoInternetDialog
 import com.af.flashlight.utils.FirebaseConfigManager
+import com.af.flashlight.utils.Permission
 import com.af.flashlight.utils.SpManager
 import com.af.flashlight.utils.Utils
+import com.af.flashlight.utils.isPermissionGranted
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.appupdate.AppUpdateOptions
 import com.google.android.play.core.install.model.AppUpdateType
@@ -48,10 +52,24 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         viewBinding.tvAds.isVisible = !spManager.isPurchased()
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (viewBinding.progressBar.progress == 0 && Utils.isConnected(this)) {
+            checkConnection()
+        }
+    }
+
     private fun checkConnection() {
         if (Utils.isConnected(this)) {
             lifecycleScope.launch {
-                delay(2000.milliseconds)
+                val totalDurationMs = 2000L
+                val steps = 100
+                val interval = totalDurationMs / steps
+                for (p in 1..100) {
+                    delay(interval)
+                    viewBinding.progressBar.progress = p
+                    viewBinding.tvLoadingPercent.text = "$p%"
+                }
                 if (shouldForceUpdate()) {
                     startForceUpdate()
                 } else {
@@ -61,8 +79,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         } else {
             NoInternetDialog(this).apply {
                 show()
-                onRetry = {
-                    checkConnection()
+                onGoToSetting = {
+                    startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
                 }
                 onCancel = {
                     finish()
@@ -122,7 +140,11 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     private fun goToMainScreen() {
         if (spManager.isLanguageChosen()) {
-            MainActivity.start(this)
+            if (isPermissionGranted(Permission.CAMERA)) {
+                MainActivity.start(this)
+            } else {
+                PermissionActivity.start(this)
+            }
         } else {
             LanguageActivity.start(this, true)
         }

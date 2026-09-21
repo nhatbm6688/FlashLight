@@ -24,7 +24,7 @@
         android:text="@string/rate_title"
         android:textColor="@color/color_main"
         android:textSize="@dimen/size16"
-        app:fontFamily="@font/google_sans_medium" />
+        app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMessage"
@@ -50,14 +50,14 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRate"
-        style="@style/StylePurpleButton"
+        style="@style/StyleYellowButton"
         android:layout_marginTop="@dimen/size20"
         android:includeFontPadding="false"
         android:text="@string/rate_us_now"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/size14"
-        app:fontFamily="@font/google_sans_medium" />
+        app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCancel"
@@ -68,5 +68,5 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/size14"
-        app:fontFamily="@font/google_sans_medium" />
+        app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
 </LinearLayout>

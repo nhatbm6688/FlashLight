@@ -32,7 +32,7 @@ class NoInternetFullDialog : BaseFullScreenDialogFragment<DialogNoInternetFullBi
         super.onStart()
         val window = dialog?.window ?: return
         window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN)
-        window.setBackgroundDrawable(Color.WHITE.toDrawable())
+        window.setBackgroundDrawable(Color.BLACK.toDrawable())
     }
 
     override fun initViews() = with(viewBinding) {

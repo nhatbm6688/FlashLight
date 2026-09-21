@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_bottom_nav_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/size10"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:weightSum="4">
+
+    <!-- Tab 1: Flashlight (Active by default) -->
+    <LinearLayout
+        android:id="@+id/tabFlashlight"
+        style="@style/StyleBottomNavTab">
+
+        <LinearLayout
+            android:id="@+id/containerTabFlashlight"
+            style="@style/StyleBottomNavContainer">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivTabFlashlight"
+                style="@style/StyleBottomNavIcon"
+                android:src="@drawable/ic_flashlight" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTabFlashlight"
+                style="@style/StyleBottomNavText"
+                android:text="@string/flashlightTitle" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Tab 2: Screenlight -->
+    <LinearLayout
+        android:id="@+id/tabScreenlight"
+        style="@style/StyleBottomNavTab">
+
+        <LinearLayout
+            android:id="@+id/containerTabScreenlight"
+            style="@style/StyleBottomNavContainer">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivTabScreenlight"
+                style="@style/StyleBottomNavIcon"
+                android:src="@drawable/ic_screenlight" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTabScreenlight"
+                style="@style/StyleBottomNavText"
+                android:text="@string/screen_light" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Tab 3: LED -->
+    <LinearLayout
+        android:id="@+id/tabLed"
+        style="@style/StyleBottomNavTab">
+
+        <LinearLayout
+            android:id="@+id/containerTabLed"
+            style="@style/StyleBottomNavContainer">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivTabLed"
+                style="@style/StyleBottomNavIcon"
+                android:src="@drawable/ic_led" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTabLed"
+                style="@style/StyleBottomNavText"
+                android:text="@string/led" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Tab 4: Flash Alert -->
+    <LinearLayout
+        android:id="@+id/tabFlashAlert"
+        style="@style/StyleBottomNavTab">
+
+        <LinearLayout
+            android:id="@+id/containerTabFlashAlert"
+            style="@style/StyleBottomNavContainer">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivTabFlashAlert"
+                style="@style/StyleBottomNavIcon"
+                android:src="@drawable/ic_flashalert" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTabFlashAlert"
+                style="@style/StyleBottomNavText"
+                android:text="@string/flash_alert" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

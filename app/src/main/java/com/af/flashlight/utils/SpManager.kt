@@ -93,4 +93,19 @@ class SpManager(private val preferences: SharedPreferences) {
         return preferences.getBoolean(Constant.KEY_SP_IS_PURCHASED, false)
     }
 
+    fun getScreenLightColor(): Int {
+        return preferences.getInt(Constant.KEY_SP_SCREEN_LIGHT_COLOR, Constant.DEFAULT_SCREEN_LIGHT_COLOR)
+    }
+
+    fun setScreenLightColor(color: Int) {
+        preferences.edit { putInt(Constant.KEY_SP_SCREEN_LIGHT_COLOR, color) }
+    }
+
+    fun getScreenLightBrightness(): Int {
+        return preferences.getInt(Constant.KEY_SP_SCREEN_LIGHT_BRIGHTNESS, Constant.DEFAULT_SCREEN_LIGHT_BRIGHTNESS)
+    }
+
+    fun setScreenLightBrightness(brightness: Int) {
+        preferences.edit { putInt(Constant.KEY_SP_SCREEN_LIGHT_BRIGHTNESS, brightness) }
+    }
 }

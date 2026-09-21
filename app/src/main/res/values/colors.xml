@@ -42,4 +42,25 @@
     <color name="color_tab_inactive_text">#7E828F</color>
     <color name="color_bottom_nav_bg">#141519</color>
     <color name="color_bottom_nav_unselected">#7E828F</color>
+    <color name="color_screenlight_card_bg">#22262C</color>
+    <color name="color_screenlight_card_stroke">#36394A</color>
+    <color name="color_screenlight_seekbar_track">#252933</color>
+    <color name="color_screenlight_seekbar_progress">#FFD54F</color>
+    <color name="color_screenlight_seekbar_thumb_glow">#4DFFD54F</color>
+    <color name="color_screenlight_dialog_bg">#FFFFFF</color>
+    <color name="color_screenlight_input_bg">#F4F5F7</color>
+    <color name="color_screenlight_input_stroke">#E5E7EB</color>
+    <color name="color_screenlight_input_text">#1F2937</color>
+    <color name="color_screenlight_label_text">#8E8E93</color>
+    <color name="color_screenlight_btn_circle">#252933</color>
+    <color name="color_screenlight_btn_expand_bg">#4D000000</color>
+    <color name="color_screenlight_ring_active">#FFD54F</color>
+
+    <!-- ScreenLight Preset Color Tokens -->
+    <color name="color_screenlight_preset_cyan">#4FA4D7</color>
+    <color name="color_screenlight_preset_white">#FFFFFF</color>
+    <color name="color_screenlight_preset_yellow">#FFD54F</color>
+    <color name="color_screenlight_preset_green">#4ADE80</color>
+    <color name="color_screenlight_preset_purple">#A855F7</color>
+    <color name="color_screenlight_preset_coral">#F87171</color>
 </resources>

@@ -57,6 +57,11 @@
             android:name=".component.main.setting.SettingActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".component.screenlight.ScreenLightPlayActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+
     </application>
 
 </manifest>

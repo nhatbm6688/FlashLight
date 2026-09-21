@@ -52,21 +52,13 @@
         android:id="@+id/btnRate"
         style="@style/StyleYellowButton"
         android:layout_marginTop="@dimen/size20"
-        android:includeFontPadding="false"
         android:text="@string/rate_us_now"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/size14"
-        app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
+        android:textSize="@dimen/size14" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCancel"
         style="@style/StyleTransparentButton"
         android:layout_marginTop="@dimen/size5"
-        android:includeFontPadding="false"
         android:text="@string/cancel"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/size14"
-        app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
+        android:textSize="@dimen/size14" />
 </LinearLayout>

@@ -100,18 +100,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnContinue"
+        style="@style/StyleYellowButton"
         android:layout_width="0dp"
-        android:layout_height="@dimen/size48"
         android:layout_marginHorizontal="@dimen/size20"
         android:layout_marginTop="@dimen/size20"
-        android:background="@drawable/bg_permission_button"
-        android:fontFamily="@font/plus_jakarta_sans_semi_bold"
-        android:includeFontPadding="false"
-        android:stateListAnimator="@null"
         android:text="@string/continue_text"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/size16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutCameraPermission" />

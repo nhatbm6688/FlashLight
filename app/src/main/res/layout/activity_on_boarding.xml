@@ -43,11 +43,8 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnNext"
             style="@style/StyleOBDButton"
-            android:layout_width="wrap_content"
-            android:includeFontPadding="false"
             android:paddingHorizontal="@dimen/size24"
             android:text="@string/next"
-            app:fontFamily="@font/plus_jakarta_sans_semi_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -45,135 +45,154 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Center Power Button with Glow Layer -->
-    <FrameLayout
-        android:id="@+id/containerPower"
-        android:layout_width="260dp"
-        android:layout_height="260dp"
-        app:layout_constraintBottom_toTopOf="@+id/layoutModeSelector"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
-        app:layout_constraintVertical_bias="0.38">
-
-        <!-- Outer Halo Glow Layer (Visible only when ON) -->
-        <View
-            android:id="@+id/viewPowerGlow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_power_glow_flashlight"
-            android:visibility="gone"
-            tools:visibility="visible" />
-
-        <!-- Circular Main Power Button -->
-        <LinearLayout
-            android:id="@+id/btnPower"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_power_button_off"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivPowerIcon"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/ic_flashlight"
-                app:tint="@color/gray" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvPowerState"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/plus_jakarta_sans_semi_bold"
-                android:includeFontPadding="false"
-                android:letterSpacing="0.05"
-                android:text="@string/state_off"
-                android:textAllCaps="true"
-                android:textColor="@color/gray"
-                android:textSize="20sp" />
-        </LinearLayout>
-    </FrameLayout>
-
-    <!-- 3-Mode Selector Segment -->
-    <LinearLayout
-        android:id="@+id/layoutModeSelector"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginBottom="24dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        app:layout_constraintBottom_toTopOf="@+id/adContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <!-- Mode 1: Flashlight -->
-        <LinearLayout
-            android:id="@+id/btnModeFlashlight"
-            style="@style/StyleModeTabContainer"
-            android:layout_marginEnd="6dp">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivModeFlashlight"
-                style="@style/StyleModeTabIcon"
-                android:src="@drawable/ic_flashlight" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvModeFlashlight"
-                style="@style/StyleModeTabText"
-                android:text="@string/flashlight" />
-        </LinearLayout>
-
-        <!-- Mode 2: SOS Light -->
-        <LinearLayout
-            android:id="@+id/btnModeSos"
-            style="@style/StyleModeTabContainer"
-            android:layout_marginHorizontal="3dp">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivModeSos"
-                style="@style/StyleModeTabIcon"
-                android:src="@drawable/ic_soslight" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvModeSos"
-                style="@style/StyleModeTabText"
-                android:text="@string/sos_light" />
-        </LinearLayout>
-
-        <!-- Mode 3: DJ Mode -->
-        <LinearLayout
-            android:id="@+id/btnModeDj"
-            style="@style/StyleModeTabContainer"
-            android:layout_marginStart="6dp">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivModeDj"
-                style="@style/StyleModeTabIcon"
-                android:src="@drawable/ic_djmode" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvModeDj"
-                style="@style/StyleModeTabText"
-                android:text="@string/dj_mode" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <!-- Ad / Buffer Container -->
-    <FrameLayout
-        android:id="@+id/adContainer"
+    <!-- Flashlight Tab Content -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutFlashlightContent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavView"
-        app:layout_constraintTop_toBottomOf="@+id/layoutModeSelector" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
+
+        <!-- Center Power Button with Glow Layer -->
+        <FrameLayout
+            android:id="@+id/containerPower"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            app:layout_constraintBottom_toTopOf="@+id/layoutModeSelector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.38">
+
+            <!-- Outer Halo Glow Layer (Visible only when ON) -->
+            <View
+                android:id="@+id/viewPowerGlow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_power_glow_flashlight"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <!-- Circular Main Power Button -->
+            <LinearLayout
+                android:id="@+id/btnPower"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_power_button_off"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivPowerIcon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_flashlight"
+                    app:tint="@color/gray" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPowerState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="0.05"
+                    android:text="@string/state_off"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- 3-Mode Selector Segment -->
+        <LinearLayout
+            android:id="@+id/layoutModeSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintBottom_toTopOf="@+id/adContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Mode 1: Flashlight -->
+            <LinearLayout
+                android:id="@+id/btnModeFlashlight"
+                style="@style/StyleModeTabContainer"
+                android:layout_marginEnd="6dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivModeFlashlight"
+                    style="@style/StyleModeTabIcon"
+                    android:src="@drawable/ic_flashlight" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvModeFlashlight"
+                    style="@style/StyleModeTabText"
+                    android:text="@string/flashlight" />
+            </LinearLayout>
+
+            <!-- Mode 2: SOS Light -->
+            <LinearLayout
+                android:id="@+id/btnModeSos"
+                style="@style/StyleModeTabContainer"
+                android:layout_marginHorizontal="3dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivModeSos"
+                    style="@style/StyleModeTabIcon"
+                    android:src="@drawable/ic_soslight" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvModeSos"
+                    style="@style/StyleModeTabText"
+                    android:text="@string/sos_light" />
+            </LinearLayout>
+
+            <!-- Mode 3: DJ Mode -->
+            <LinearLayout
+                android:id="@+id/btnModeDj"
+                style="@style/StyleModeTabContainer"
+                android:layout_marginStart="6dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivModeDj"
+                    style="@style/StyleModeTabIcon"
+                    android:src="@drawable/ic_djmode" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvModeDj"
+                    style="@style/StyleModeTabText"
+                    android:text="@string/dj_mode" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Ad / Buffer Container -->
+        <FrameLayout
+            android:id="@+id/adContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutModeSelector" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ScreenLight / Fragment Tab Container -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavView"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader" />
 
     <!-- Bottom Navigation Bar -->
     <include

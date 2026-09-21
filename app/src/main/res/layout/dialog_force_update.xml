@@ -40,17 +40,14 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnUpdate"
         style="@style/StyleYellowButton"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginHorizontal="0dp"
         android:layout_marginTop="@dimen/size24"
         android:text="@string/force_update_button" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnExit"
         style="@style/StyleTransparentButton"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_width="match_parent"
+        android:layout_marginHorizontal="0dp"
         android:layout_marginTop="@dimen/size10"
         android:text="@string/exit" />
 

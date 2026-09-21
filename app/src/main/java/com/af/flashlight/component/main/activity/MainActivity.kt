@@ -22,7 +22,9 @@ import com.af.flashlight.component.main.viewmodel.MainUiState
 import com.af.flashlight.component.main.viewmodel.MainViewModel
 import com.af.flashlight.component.main.viewmodel.NavigationTab
 import com.af.flashlight.databinding.ActivityMainBinding
+import com.af.flashlight.component.screenlight.ScreenLightFragment
 import com.af.flashlight.utils.SpManager
+import androidx.fragment.app.commit
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -72,7 +74,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
         bottomNavView.tabScreenlight.setOnClickListener {
             viewModel.selectTab(NavigationTab.SCREEN_LIGHT)
-            showToast(getString(R.string.coming_soon))
         }
         bottomNavView.tabLed.setOnClickListener {
             viewModel.selectTab(NavigationTab.LED)
@@ -96,11 +97,30 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun renderUi(state: MainUiState) = with(viewBinding) {
-        // 1. Update Header Title based on selected mode
-        tvHeaderTitle.text = when (state.currentMode) {
-            LightMode.FLASHLIGHT -> getString(R.string.flashlight)
-            LightMode.SOS -> getString(R.string.sos_light)
-            LightMode.DJ -> getString(R.string.dj_mode)
+        // 1. Handle Active Tab Content & Header Title
+        when (state.currentTab) {
+            NavigationTab.FLASHLIGHT -> {
+                layoutFlashlightContent.visibility = View.VISIBLE
+                fragmentContainer.visibility = View.GONE
+                btnSettings.visibility = View.VISIBLE
+                tvHeaderTitle.text = when (state.currentMode) {
+                    LightMode.FLASHLIGHT -> getString(R.string.flashlight)
+                    LightMode.SOS -> getString(R.string.sos_light)
+                    LightMode.DJ -> getString(R.string.dj_mode)
+                }
+            }
+            NavigationTab.SCREEN_LIGHT -> {
+                layoutFlashlightContent.visibility = View.GONE
+                fragmentContainer.visibility = View.VISIBLE
+                btnSettings.visibility = View.GONE
+                tvHeaderTitle.text = getString(R.string.screenlight_title)
+                showScreenLightFragment()
+            }
+            else -> {
+                layoutFlashlightContent.visibility = View.VISIBLE
+                fragmentContainer.visibility = View.GONE
+                btnSettings.visibility = View.VISIBLE
+            }
         }
 
         // 2. Update Power Button & Glow Effect
@@ -193,6 +213,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         } catch (_: Exception) {
             // Ignore if vibration unavailable
         }
+    }
+
+    private fun showScreenLightFragment() {
+        val tag = ScreenLightFragment::class.java.simpleName
+        val existing = supportFragmentManager.findFragmentByTag(tag)
+        if (existing == null) {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace(R.id.fragmentContainer, ScreenLightFragment.newInstance(), tag)
+            }
+        }
+        viewModel.turnOffLight()
     }
 
     override fun onStop() {

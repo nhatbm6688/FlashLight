@@ -14,4 +14,9 @@ object Constant {
 
     const val LINK_POLICY = "https://sites.google.com/view/"
     const val LINK_TERM = "https://sites.google.com/view/"
+
+    const val KEY_SP_SCREEN_LIGHT_COLOR = "KEY_SP_SCREEN_LIGHT_COLOR"
+    const val KEY_SP_SCREEN_LIGHT_BRIGHTNESS = "KEY_SP_SCREEN_LIGHT_BRIGHTNESS"
+    const val DEFAULT_SCREEN_LIGHT_COLOR = 0xFF4FA4D7.toInt()
+    const val DEFAULT_SCREEN_LIGHT_BRIGHTNESS = 80
 }

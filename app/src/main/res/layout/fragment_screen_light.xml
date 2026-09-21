@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="24dp">
+
+        <!-- 1. Light Preview Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLightPreview"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
+
+            <FrameLayout
+                android:id="@+id/viewLightPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_screenlight_preset_cyan">
+
+                <!-- Expand Button (Top Right) -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnExpand"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="end|top"
+                    android:layout_margin="14dp"
+                    android:background="@drawable/bg_preview_expand_btn"
+                    android:clickable="true"
+                    android:contentDescription="@string/screen_light"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_expand" />
+
+            </FrameLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 2. Brightness Control Card -->
+        <LinearLayout
+            android:id="@+id/cardBrightness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_screenlight_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBrightnessLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                    android:text="@string/brightness"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBrightnessPercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                    android:text="80%"
+                    android:textColor="@color/color_screenlight_seekbar_progress"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/sbBrightness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="4dp"
+                android:max="100"
+                android:paddingStart="@dimen/size13"
+                android:paddingEnd="@dimen/size13"
+                android:progress="80"
+                android:progressDrawable="@drawable/bg_brightness_seekbar_track"
+                android:splitTrack="false"
+                android:thumb="@drawable/bg_brightness_seekbar_thumb" />
+
+        </LinearLayout>
+
+        <!-- 3. Color Selection Card -->
+        <LinearLayout
+            android:id="@+id/cardColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_screenlight_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvColorLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                android:text="@string/color"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <!-- Row 1: ic_draw + Cyan + White + Yellow + Green -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- 0. Custom Color Picker Button -->
+                <FrameLayout
+                    android:id="@+id/containerColorPicker"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="12dp">
+
+                    <View
+                        android:id="@+id/ringColorPicker"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_color_circle_active"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btnCustomColorPicker"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_color_picker_btn"
+                        android:clickable="true"
+                        android:contentDescription="@string/color"
+                        android:focusable="true"
+                        android:padding="8dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_draw" />
+
+                </FrameLayout>
+
+                <!-- 1. Cyan -->
+                <FrameLayout
+                    android:id="@+id/containerColorCyan"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="12dp">
+
+                    <View
+                        android:id="@+id/ringColorCyan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_color_circle_active"
+                        android:visibility="visible" />
+
+                    <View
+                        android:id="@+id/circleColorCyan"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <!-- 2. White -->
+                <FrameLayout
+                    android:id="@+id/containerColorWhite"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="12dp">
+
+                    <View
+                        android:id="@+id/ringColorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_color_circle_active"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/circleColorWhite"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <!-- 3. Yellow -->
+                <FrameLayout
+                    android:id="@+id/containerColorYellow"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="12dp">
+
+                    <View
+                        android:id="@+id/ringColorYellow"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_color_circle_active"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/circleColorYellow"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <!-- 4. Green -->
+                <FrameLayout
+                    android:id="@+id/containerColorGreen"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp">
+
+                    <View
+                        android:id="@+id/ringColorGreen"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_color_circle_active"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/circleColorGreen"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- Row 2: Purple + Coral -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- 5. Purple -->
+                <FrameLayout
+                    android:id="@+id/containerColorPurple"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="12dp">
+
+                    <View
+                        android:id="@+id/ringColorPurple"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_color_circle_active"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/circleColorPurple"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <!-- 6. Coral -->
+                <FrameLayout
+                    android:id="@+id/containerColorCoral"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp">
+
+                    <View
+                        android:id="@+id/ringColorCoral"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_color_circle_active"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/circleColorCoral"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

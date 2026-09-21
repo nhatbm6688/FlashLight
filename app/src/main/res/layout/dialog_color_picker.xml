@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    app:cardBackgroundColor="@color/color_screenlight_dialog_bg"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <!-- 2D Saturation/Value Panel -->
+        <com.af.flashlight.component.screenlight.view.SatValPanelView
+            android:id="@+id/satValPanel"
+            android:layout_width="match_parent"
+            android:layout_height="210dp" />
+
+        <!-- Hue Slider -->
+        <com.af.flashlight.component.screenlight.view.HueSliderView
+            android:id="@+id/hueSlider"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="@dimen/size13" />
+
+        <!-- Alpha Slider -->
+        <com.af.flashlight.component.screenlight.view.AlphaSliderView
+            android:id="@+id/alphaSlider"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Color Value Display: HEX and RGB -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- HEX section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                    android:text="@string/hex"
+                    android:textColor="@color/color_screenlight_label_text"
+                    android:textSize="11sp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etHex"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_color_input_box"
+                    android:fontFamily="@font/plus_jakarta_sans_medium"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"
+                    android:textColor="@color/color_screenlight_input_text"
+                    android:textSize="13sp"
+                    tools:text="#9751F2" />
+            </LinearLayout>
+
+            <!-- Spacer -->
+            <View
+                android:layout_width="10dp"
+                android:layout_height="1dp" />
+
+            <!-- R section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                    android:text="@string/r"
+                    android:textColor="@color/color_screenlight_label_text"
+                    android:textSize="11sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvR"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_color_input_box"
+                    android:fontFamily="@font/plus_jakarta_sans_medium"
+                    android:gravity="center"
+                    android:textColor="@color/color_screenlight_input_text"
+                    android:textSize="13sp"
+                    tools:text="151" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="1dp" />
+
+            <!-- G section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                    android:text="@string/g"
+                    android:textColor="@color/color_screenlight_label_text"
+                    android:textSize="11sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvG"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_color_input_box"
+                    android:fontFamily="@font/plus_jakarta_sans_medium"
+                    android:gravity="center"
+                    android:textColor="@color/color_screenlight_input_text"
+                    android:textSize="13sp"
+                    tools:text="81" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="1dp" />
+
+            <!-- B section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                    android:text="@string/b"
+                    android:textColor="@color/color_screenlight_label_text"
+                    android:textSize="11sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvB"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_color_input_box"
+                    android:fontFamily="@font/plus_jakarta_sans_medium"
+                    android:gravity="center"
+                    android:textColor="@color/color_screenlight_input_text"
+                    android:textSize="13sp"
+                    tools:text="242" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Choose Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnChoose"
+            style="@style/StyleYellowButton"
+            android:layout_marginHorizontal="0dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/choose" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

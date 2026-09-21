@@ -138,4 +138,12 @@
     <string name="state_off">OFF</string>
     <string name="flash_not_supported">Flashlight is not supported on this device</string>
     <string name="coming_soon">Coming soon</string>
+    <string name="screenlight_title">ScreenLight</string>
+    <string name="brightness">Brightness</string>
+    <string name="color">Color</string>
+    <string name="choose">Choose</string>
+    <string name="hex">HEX</string>
+    <string name="r">R</string>
+    <string name="g">G</string>
+    <string name="b">B</string>
 </resources>

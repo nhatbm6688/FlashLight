@@ -2,7 +2,6 @@ package com.af.flashlight.dialog
 
 import android.content.Context
 import android.widget.RatingBar.OnRatingBarChangeListener
-import android.widget.Toast
 import com.af.flashlight.R
 import com.af.flashlight.base.dialog.BaseDialog
 import com.af.flashlight.databinding.DialogRateBinding
@@ -19,54 +18,61 @@ class RateDialog(private val context: Context) : BaseDialog<DialogRateBinding>(c
         super.initViews()
         setCancelable(true)
 
-        tvTitle.text = context.getString(R.string.rate_title, context.getString(R.string.app_name))
+        updateUiForRating(0)
 
         ratingBar.onRatingBarChangeListener = OnRatingBarChangeListener { _, rating, _ ->
             this@RateDialog.rating = rating
-            when (rating.toInt()) {
-                1 -> {
-                    tvTitle.text = context.resources.getString(R.string.rate_1_title)
-                    tvMessage.text = context.resources.getString(R.string.rate_1_message)
-                    btnRate.text = context.resources.getString(R.string.rate_1_button)
-                }
-
-                2 -> {
-                    tvTitle.text = context.resources.getString(R.string.rate_2_title)
-                    tvMessage.text = context.resources.getString(R.string.rate_2_message)
-                    btnRate.text = context.resources.getString(R.string.rate_2_button)
-                }
-
-                3 -> {
-                    tvTitle.text = context.resources.getString(R.string.rate_3_title)
-                    tvMessage.text = context.resources.getString(R.string.rate_3_message)
-                    btnRate.text = context.resources.getString(R.string.rate_3_button)
-                }
-
-                4 -> {
-                    tvTitle.text = context.resources.getString(R.string.rate_4_title)
-                    tvMessage.text = context.resources.getString(R.string.rate_4_message)
-                    btnRate.text = context.resources.getString(R.string.rate_4_button)
-                }
-
-                else -> {
-                    tvTitle.text = context.resources.getString(R.string.rate_5_title)
-                    tvMessage.text = context.resources.getString(R.string.rate_5_message)
-                    btnRate.text = context.resources.getString(R.string.rate_5_button)
-                }
-            }
+            updateUiForRating(rating.toInt())
         }
 
-        btnRate.setOnClickListener {
+        btnSubmit.setOnClickListener {
             dismiss()
-            if (rating < 4) {
-                Toast.makeText(context, context.resources.getString(R.string.thanks_for_feedback), Toast.LENGTH_SHORT).show()
-            } else {
-                context.openAppInStore()
-            }
+            context.openAppInStore()
         }
 
-        btnCancel.setOnClickListener { dismiss() }
-
+        btnClose.setOnClickListener {
+            dismiss()
+        }
     }
 
+    private fun updateUiForRating(starCount: Int) = with(viewBinding) {
+        when (starCount) {
+            0 -> {
+                ivRatingEmotion.setImageResource(R.mipmap.ic_ratting_0)
+                tvTitle.text = context.getString(R.string.rate_0_title, context.getString(R.string.app_name))
+                tvMessage.text = context.getString(R.string.rate_message)
+            }
+
+            1 -> {
+                ivRatingEmotion.setImageResource(R.mipmap.ic_ratting_1)
+                tvTitle.text = context.getString(R.string.rate_1_title)
+                tvMessage.text = context.getString(R.string.rate_1_message)
+            }
+
+            2 -> {
+                ivRatingEmotion.setImageResource(R.mipmap.ic_ratting_2)
+                tvTitle.text = context.getString(R.string.rate_2_title)
+                tvMessage.text = context.getString(R.string.rate_2_message)
+            }
+
+            3 -> {
+                ivRatingEmotion.setImageResource(R.mipmap.ic_ratting_3)
+                tvTitle.text = context.getString(R.string.rate_3_title)
+                tvMessage.text = context.getString(R.string.rate_3_message)
+            }
+
+            4 -> {
+                ivRatingEmotion.setImageResource(R.mipmap.ic_ratting_4)
+                tvTitle.text = context.getString(R.string.rate_4_title)
+                tvMessage.text = context.getString(R.string.rate_4_message)
+            }
+
+            else -> {
+                ivRatingEmotion.setImageResource(R.mipmap.ic_ratting_5)
+                tvTitle.text = context.getString(R.string.rate_5_title)
+                tvMessage.text = context.getString(R.string.rate_5_message)
+            }
+        }
+        btnSubmit.setText(R.string.submit)
+    }
 }

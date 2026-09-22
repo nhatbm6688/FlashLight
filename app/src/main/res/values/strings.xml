@@ -46,7 +46,7 @@
     <string name="title_onboarding_1">Bright Flashlight</string>
     <string name="des_onboarding_1">Turn your phone into a powerful flashlight anytime.</string>
     <string name="title_onboarding_2">SOS &amp; DJ Flash</string>
-    <string name="des_onboarding_2">Use SOS mode for emergencies for DJ mode for parties.</string>
+    <string name="des_onboarding_2">Use SOS mode for emergencies or DJ mode for parties.</string>
     <string name="title_onboarding_3">LED Banner</string>
     <string name="des_onboarding_3">Display scrolling LED text with customizable colors and effects.</string>
     <string name="title_onboarding_4">Screen Light</string>
@@ -73,9 +73,14 @@
     <string name="rate_4_button">Rate on Google Play</string>
     <string name="rate_5_button">Rate on Google Play</string>
     <string name="rate_us">Rate Us</string>
+    <string name="rate_app">Rate app</string>
+    <string name="share">Share</string>
     <string name="share_app">Share App</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="policy_setting">Policy Setting</string>
+    <string name="choose_language">Language</string>
+    <string name="submit">Submit</string>
+    <string name="rate_0_title">Do you like \"%s\"?</string>
     <string name="rate_title">Enjoying %s?</string>
     <string name="rate_message">Your feedback helps us improve. Please take a moment to rate your experience.</string>
     <string name="rate_us_now">Rate Us Now</string>
@@ -134,8 +139,8 @@
     <string name="screen_light">Screenlight</string>
     <string name="led">LED</string>
     <string name="flash_alert">Flash Alert</string>
-    <string name="state_on">ON</string>
-    <string name="state_off">OFF</string>
+    <string name="state_on" translatable="false">ON</string>
+    <string name="state_off" translatable="false">OFF</string>
     <string name="flash_not_supported">Flashlight is not supported on this device</string>
     <string name="coming_soon">Coming soon</string>
     <string name="screenlight_title">ScreenLight</string>
@@ -146,4 +151,47 @@
     <string name="r">R</string>
     <string name="g">G</string>
     <string name="b">B</string>
+
+    <!-- LED Feature Strings -->
+    <string name="led_title">LED</string>
+    <string name="text_label">Text</string>
+    <string name="font_size">Font Size</string>
+    <string name="scroll_speed">Scroll Speed</string>
+    <string name="direction">Direction</string>
+    <string name="visual_effects">Visual Effects</string>
+    <string name="effect_glow">Glow</string>
+    <string name="effect_blink">Blink</string>
+    <string name="effect_neon">Neon</string>
+    <string name="effect_fade">Fade</string>
+    <string name="background_label">Background</string>
+    <string name="default_led_text">HELLO WORLD</string>
+
+    <!-- Flash Alert Feature Strings -->
+    <string name="incoming_calls">Incoming Calls</string>
+    <string name="sms">SMS</string>
+    <string name="notification">Notification</string>
+    <string name="tap_for_more_settings">Tap for more settings</string>
+    <string name="status_colon_on">Status: On</string>
+    <string name="status_colon_off">Status: Off</string>
+    <string name="flashing_speed">Flashing Speed</string>
+    <string name="flashing_on">Flashing ON</string>
+    <string name="flashing_off">Flashing OFF</string>
+    <string name="test_uppercase">TEST</string>
+    <string name="select_app">Select App</string>
+    <string name="select_all">Select All</string>
+    <string name="deselect_all">Deselect All</string>
+    <string name="test_incoming_call_number">0989 999 999</string>
+    <string name="test_sms_sender">Message</string>
+    <string name="test_sms_time">11:04</string>
+    <string name="test_sms_content_1">Hey there! Hello from the other side of the city. 👋</string>
+    <string name="test_sms_content_2">Good morning! Hope you\'re having a great start to your day.</string>
+    <string name="test_sms_content_3">Thanks! Just grabbing some coffee. How\'s your Friday looking?</string>
+    <string name="test_sms_content_4">Pretty good so far, just catching up on some reading. Have a wonderful weekend ahead!</string>
+    <string name="test_notification_title">Notification</string>
+    <string name="test_notification_body">This is testing notification</string>
+    <string name="now">Now</string>
+    <string name="permission_phone_needed">Phone permission is required to detect incoming calls and trigger flash alerts.</string>
+    <string name="permission_sms_needed">SMS permission is required to detect incoming messages and trigger flash alerts.</string>
+    <string name="notification_access_needed">Notification access is required to trigger flash alerts when selected apps receive notifications.</string>
+    <string name="open_settings">Open Settings</string>
 </resources>

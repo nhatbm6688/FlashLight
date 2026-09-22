@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main">
+
+    <!-- Header Toolbar -->
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/tool_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Content Area in ScrollView -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/btnTest"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <!-- Big Hero Icon -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivHeroIcon"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitCenter"
+                tools:srcCompat="@drawable/ic_call_big" />
+
+            <!-- Card 1: Status Toggle -->
+            <LinearLayout
+                android:id="@+id/cardStatus"
+                style="@style/StyleSettingCard"
+                android:layout_marginTop="32dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStatusText"
+                    style="@style/StyleSettingTitle"
+                    android:text="@string/status_colon_off" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumb="@drawable/bg_switch_thumb"
+                    app:track="@drawable/bg_switch_track" />
+            </LinearLayout>
+
+            <!-- Card 2: Select App (Notification only) -->
+            <LinearLayout
+                android:id="@+id/cardSelectApp"
+                style="@style/StyleSettingCard"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/StyleSettingTitle"
+                    android:text="@string/select_app" />
+
+                <!-- Container for Mini Preview App Icons -->
+                <LinearLayout
+                    android:id="@+id/layoutAppPreviews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/StyleSettingArrow"
+                    app:srcCompat="@drawable/ic_arrow_right" />
+            </LinearLayout>
+
+            <!-- Card 3: Flashing Speed -->
+            <LinearLayout
+                android:id="@+id/cardFlashingSpeed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size15"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_flash_alert_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                    android:includeFontPadding="false"
+                    android:text="@string/flashing_speed"
+                    android:textColor="@color/text_main"
+                    android:textSize="@dimen/size16" />
+
+                <!-- Flashing ON -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/plus_jakarta_sans_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/flashing_on"
+                        android:textColor="@color/text_main"
+                        android:textSize="14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFlashingOnVal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/text_yellow"
+                        android:textSize="14sp"
+                        tools:text="0.5s" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/sbFlashingOn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:max="20"
+                    android:min="1"
+                    android:progress="5"
+                    android:progressDrawable="@drawable/bg_flash_alert_seekbar_track"
+                    android:splitTrack="false"
+                    android:thumb="@drawable/bg_brightness_seekbar_thumb" />
+
+                <!-- Flashing OFF -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/plus_jakarta_sans_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/flashing_off"
+                        android:textColor="@color/text_main"
+                        android:textSize="14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFlashingOffVal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/text_yellow"
+                        android:textSize="14sp"
+                        tools:text="0.5s" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/sbFlashingOff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:max="20"
+                    android:min="1"
+                    android:progress="5"
+                    android:progressDrawable="@drawable/bg_flash_alert_seekbar_track"
+                    android:splitTrack="false"
+                    android:thumb="@drawable/bg_brightness_seekbar_thumb" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Button: TEST -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTest"
+        style="@style/StyleYellowButton"
+        android:layout_marginBottom="24dp"
+        android:text="@string/test_uppercase"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

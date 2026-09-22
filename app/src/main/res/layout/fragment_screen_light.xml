@@ -35,7 +35,7 @@
                 <!-- Expand Button (Top Right) -->
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/btnExpand"
-                    android:layout_width="38dp"
+                    android:layout_width="44dp"
                     android:layout_height="38dp"
                     android:layout_gravity="end|top"
                     android:layout_margin="14dp"
@@ -95,15 +95,18 @@
                 android:id="@+id/sbBrightness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="4dp"
                 android:max="100"
-                android:paddingStart="@dimen/size13"
-                android:paddingEnd="@dimen/size13"
+                android:paddingStart="@dimen/size18"
+                android:paddingEnd="@dimen/size18"
+                android:paddingTop="@dimen/size6"
+                android:paddingBottom="@dimen/size6"
                 android:progress="80"
                 android:progressDrawable="@drawable/bg_brightness_seekbar_track"
                 android:splitTrack="false"
-                android:thumb="@drawable/bg_brightness_seekbar_thumb" />
+                android:thumb="@drawable/bg_brightness_seekbar_thumb"
+                android:thumbOffset="@dimen/size18" />
 
         </LinearLayout>
 
@@ -137,114 +140,75 @@
                 <!-- 0. Custom Color Picker Button -->
                 <FrameLayout
                     android:id="@+id/containerColorPicker"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_marginEnd="12dp">
+                    style="@style/StyleColorItemContainer">
 
                     <View
                         android:id="@+id/ringColorPicker"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_color_circle_active"
-                        android:visibility="gone"
+                        style="@style/StyleColorSelectionRing"
                         tools:visibility="visible" />
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/btnCustomColorPicker"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/bg_color_picker_btn"
-                        android:clickable="true"
-                        android:contentDescription="@string/color"
-                        android:focusable="true"
-                        android:padding="8dp"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/ic_draw" />
+                        style="@style/StyleColorPickerButton" />
 
                 </FrameLayout>
 
-                <!-- 1. Cyan -->
+                <!-- 1. Cyan (Default selected) -->
                 <FrameLayout
                     android:id="@+id/containerColorCyan"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_marginEnd="12dp">
+                    style="@style/StyleColorItemContainer">
 
                     <View
                         android:id="@+id/ringColorCyan"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_color_circle_active"
+                        style="@style/StyleColorSelectionRing"
                         android:visibility="visible" />
 
                     <View
                         android:id="@+id/circleColorCyan"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="center" />
+                        style="@style/StyleColorCircleInner" />
                 </FrameLayout>
 
                 <!-- 2. White -->
                 <FrameLayout
                     android:id="@+id/containerColorWhite"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_marginEnd="12dp">
+                    style="@style/StyleColorItemContainer">
 
                     <View
                         android:id="@+id/ringColorWhite"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_color_circle_active"
-                        android:visibility="gone" />
+                        style="@style/StyleColorSelectionRing" />
 
                     <View
                         android:id="@+id/circleColorWhite"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="center" />
+                        style="@style/StyleColorCircleInner" />
                 </FrameLayout>
 
                 <!-- 3. Yellow -->
                 <FrameLayout
                     android:id="@+id/containerColorYellow"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_marginEnd="12dp">
+                    style="@style/StyleColorItemContainer">
 
                     <View
                         android:id="@+id/ringColorYellow"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_color_circle_active"
-                        android:visibility="gone" />
+                        style="@style/StyleColorSelectionRing" />
 
                     <View
                         android:id="@+id/circleColorYellow"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="center" />
+                        style="@style/StyleColorCircleInner" />
                 </FrameLayout>
 
                 <!-- 4. Green -->
                 <FrameLayout
                     android:id="@+id/containerColorGreen"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp">
+                    style="@style/StyleColorItemContainer"
+                    android:layout_marginEnd="0dp">
 
                     <View
                         android:id="@+id/ringColorGreen"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_color_circle_active"
-                        android:visibility="gone" />
+                        style="@style/StyleColorSelectionRing" />
 
                     <View
                         android:id="@+id/circleColorGreen"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="center" />
+                        style="@style/StyleColorCircleInner" />
                 </FrameLayout>
 
             </LinearLayout>
@@ -260,42 +224,30 @@
                 <!-- 5. Purple -->
                 <FrameLayout
                     android:id="@+id/containerColorPurple"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_marginEnd="12dp">
+                    style="@style/StyleColorItemContainer">
 
                     <View
                         android:id="@+id/ringColorPurple"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_color_circle_active"
-                        android:visibility="gone" />
+                        style="@style/StyleColorSelectionRing" />
 
                     <View
                         android:id="@+id/circleColorPurple"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="center" />
+                        style="@style/StyleColorCircleInner" />
                 </FrameLayout>
 
                 <!-- 6. Coral -->
                 <FrameLayout
                     android:id="@+id/containerColorCoral"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp">
+                    style="@style/StyleColorItemContainer"
+                    android:layout_marginEnd="0dp">
 
                     <View
                         android:id="@+id/ringColorCoral"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_color_circle_active"
-                        android:visibility="gone" />
+                        style="@style/StyleColorSelectionRing" />
 
                     <View
                         android:id="@+id/circleColorCoral"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="center" />
+                        style="@style/StyleColorCircleInner" />
                 </FrameLayout>
 
             </LinearLayout>

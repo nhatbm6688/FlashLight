@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size20"
         android:text="@string/exit_app_title"
-        android:textColor="@color/purple"
+        android:textColor="@color/yellow"
         android:textSize="@dimen/size18"
         app:fontFamily="@font/plus_jakarta_sans_semi_bold" />
 

@@ -6,6 +6,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -61,6 +65,54 @@
             android:name=".component.screenlight.ScreenLightPlayActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+
+        <activity
+            android:name=".component.led.LedPlayActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" />
+
+        <!-- Flash Alert Feature -->
+        <activity
+            android:name=".component.flashalert.activity.FlashAlertConfigActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".component.flashalert.activity.FlashAlertSelectAppActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".component.flashalert.activity.FlashAlertSimulationActivity"
+            android:screenOrientation="portrait" />
+
+        <receiver
+            android:name=".component.flashalert.receiver.CallFlashReceiver"
+            android:exported="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".component.flashalert.receiver.SmsFlashReceiver"
+            android:exported="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".component.flashalert.service.FlashAlertService"
+            android:exported="false" />
+
+        <service
+            android:name=".component.flashalert.service.FlashNotificationListenerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
 
     </application>
 

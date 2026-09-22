@@ -3,24 +3,28 @@ package com.af.flashlight.component.main.setting
 import android.app.Activity
 import android.content.Intent
 import android.view.View
+import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.af.flashlight.BuildConfig
 import com.af.flashlight.R
 import com.af.flashlight.base.activity.BaseActivity
 import com.af.flashlight.component.language.activity.LanguageActivity
+import com.af.flashlight.component.main.setting.viewmodel.SettingViewModel
 import com.af.flashlight.databinding.ActivitySettingBinding
 import com.af.flashlight.dialog.RateDialog
 import com.af.flashlight.utils.Constant
-import com.af.flashlight.utils.SpManager
 import com.af.flashlight.utils.openBrowser
 import com.af.flashlight.utils.share
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SettingActivity : BaseActivity<ActivitySettingBinding>(), View.OnClickListener {
-    @Inject
-    lateinit var spManager: SpManager
+
+    private val viewModel: SettingViewModel by viewModels()
 
     override fun provideViewBinding(): ActivitySettingBinding {
         return ActivitySettingBinding.inflate(layoutInflater)
@@ -30,17 +34,29 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>(), View.OnClickList
         super.initViews()
         toolBar.tvTitle.text = getString(R.string.settings)
         toolBar.btnBack.setOnClickListener { onBack() }
-        val isShowPolicySettings = spManager.getBoolean(
-            Constant.KEY_SP_IS_SHOW_UMP_SETTING, false
-        )
-
-        btnPolicySetting.isVisible = isShowPolicySettings
 
         btnLanguage.setOnClickListener(this@SettingActivity)
         btnShareApp.setOnClickListener(this@SettingActivity)
         btnRateUs.setOnClickListener(this@SettingActivity)
         btnPrivacyPolicy.setOnClickListener(this@SettingActivity)
         btnPolicySetting.setOnClickListener(this@SettingActivity)
+    }
+
+    override fun initObserver() {
+        super.initObserver()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    viewBinding.tvCurrentLanguage.setText(state.currentLanguageNameRes)
+                    viewBinding.btnPolicySetting.isVisible = state.isShowPolicySetting
+                }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadSettings()
     }
 
     override fun onClick(v: View?) {
@@ -62,9 +78,8 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>(), View.OnClickList
             }
 
             R.id.btnPolicySetting -> {
-//                showPolicySetting()
+                openBrowser(Constant.LINK_POLICY)
             }
-
         }
     }
 

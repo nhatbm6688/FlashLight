@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:keepScreenOn="true">
+
+    <!-- Fullscreen LED Display -->
+    <com.af.flashlight.component.led.view.LedBannerView
+        android:id="@+id/viewLedPlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Close Button (Top Left) -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnClose"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_gravity="start|top"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:contentDescription="@string/exit"
+        android:focusable="true"
+        android:padding="4dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_close_2" />
+
+</FrameLayout>

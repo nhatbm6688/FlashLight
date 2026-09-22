@@ -33,15 +33,32 @@ class MainViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     private val _uiState = MutableStateFlow(
-        MainUiState(isFlashAvailable = flashlightManager.isFlashAvailable)
+        MainUiState(
+            currentMode = flashlightManager.currentMode,
+            isLightOn = flashlightManager.isLightOn,
+            isFlashAvailable = flashlightManager.isFlashAvailable
+        )
     )
     val uiState = _uiState.asStateFlow()
 
     init {
         flashlightManager.registerTorchCallback { enabled ->
-            if (!enabled && _uiState.value.isLightOn && _uiState.value.currentMode == LightMode.FLASHLIGHT) {
-                _uiState.value = _uiState.value.copy(isLightOn = false)
+            if (_uiState.value.currentMode == LightMode.FLASHLIGHT) {
+                if (_uiState.value.isLightOn != enabled) {
+                    _uiState.value = _uiState.value.copy(isLightOn = enabled)
+                }
             }
+        }
+    }
+
+    fun syncWithHardware() {
+        val hardwareActive = flashlightManager.isLightOn
+        val hardwareMode = flashlightManager.currentMode
+        if (_uiState.value.isLightOn != hardwareActive || _uiState.value.currentMode != hardwareMode) {
+            _uiState.value = _uiState.value.copy(
+                isLightOn = hardwareActive,
+                currentMode = hardwareMode
+            )
         }
     }
 
@@ -56,12 +73,14 @@ class MainViewModel @Inject constructor(
     fun selectMode(mode: LightMode) {
         if (_uiState.value.currentMode == mode) return
 
-        _uiState.value = _uiState.value.copy(currentMode = mode)
-
-        // If light is currently ON, switch the hardware behavior immediately to the new mode
-        if (_uiState.value.isLightOn) {
-            applyFlashlightState(true, mode)
-        }
+        // Always turn off hardware and reset state when switching modes.
+        // Each mode is independent — switching to SOS/DJ should never inherit the ON state
+        // from the previous mode.
+        flashlightManager.turnOff()
+        _uiState.value = _uiState.value.copy(
+            currentMode = mode,
+            isLightOn = false
+        )
     }
 
     fun selectTab(tab: NavigationTab) {
@@ -90,6 +109,7 @@ class MainViewModel @Inject constructor(
 
     override fun onCleared() {
         super.onCleared()
-        flashlightManager.release()
+        // Do NOT call flashlightManager.release() here, as FlashlightManager is a singleton
+        // and the flashlight should remain in its active state across Activity/ViewModel lifecycles.
     }
 }

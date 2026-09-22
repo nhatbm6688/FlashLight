@@ -5,10 +5,11 @@
     <color name="white">#FFFFFF</color>
     <color name="color_main">#FFD54F</color>
     <color name="text_main">#FFFFFF</color>
-    <color name="text_gray">#666D80</color>
+    <color name="text_gray">#C1C7D0</color>
+    <color name="text_yellow">#FFD54F</color>
     <color name="text_black">#191919</color>
     <color name="pink">#FF9AD5</color>
-    <color name="background_main">#0D0D0D</color>
+    <color name="background_main">#111111</color>
     <color name="transparent">#00000000</color>
     <color name="transparent_50">#80000000</color>
     <color name="gray_transparent">#1A747172</color>
@@ -29,31 +30,41 @@
     <color name="color_flash_glow_yellow_outer">#00FFD54F</color>
     <color name="color_bottom_nav_active_bg">#1AFFD54F</color>
     <color name="color_bottom_nav_active_shadow">#26FFD54F</color>
+    <color name="color_bottom_nav_active_shadow_mid">#1AFFD54F</color>
     <color name="color_bottom_nav_active_shadow_soft">#0DFFD54F</color>
-    <color name="color_sos_start">#FF5252</color>
-    <color name="color_sos_end">#D32F2F</color>
-    <color name="color_sos_glow">#80FF5252</color>
-    <color name="color_dj_start">#E040FB</color>
-    <color name="color_dj_end">#7B1FA2</color>
-    <color name="color_dj_glow">#80E040FB</color>
+    <color name="color_sos_start">#FF4F4F</color>
+    <color name="color_sos_end">#CA0404</color>
+    <color name="color_sos_glow">#80FF4F4F</color>
+    <color name="color_dj_start">#FF4FB9</color>
+    <color name="color_dj_end">#4D04CA</color>
+    <color name="color_dj_glow">#804D04CA</color>
     <color name="color_power_btn_off">#36394A</color>
     <color name="color_power_btn_off_stroke">#333748</color>
     <color name="color_tab_inactive_bg">#22262C</color>
     <color name="color_tab_inactive_text">#7E828F</color>
-    <color name="color_bottom_nav_bg">#141519</color>
-    <color name="color_bottom_nav_unselected">#7E828F</color>
+    <color name="color_bottom_nav_bg_stroke">#19FFFFFF</color>
+    <color name="color_bottom_nav_bg">#CC1C1B1B</color>
+    <color name="color_bottom_nav_unselected">#C1C7D0</color>
     <color name="color_screenlight_card_bg">#22262C</color>
     <color name="color_screenlight_card_stroke">#36394A</color>
-    <color name="color_screenlight_seekbar_track">#252933</color>
+    <color name="color_screenlight_seekbar_track">#353534</color>
     <color name="color_screenlight_seekbar_progress">#FFD54F</color>
     <color name="color_screenlight_seekbar_thumb_glow">#4DFFD54F</color>
+
+    <!-- SeekBar Tokens (Design Spec: Primary #FFD54F, Track #353534, Drop Shadow Blur 10 50% opacity) -->
+    <color name="color_seekbar_track">#353534</color>
+    <color name="color_seekbar_thumb">#FFD54F</color>
+    <color name="color_seekbar_thumb_glow_50">#80FFD54F</color>
+    <color name="color_seekbar_thumb_glow_30">#4DFFD54F</color>
+    <color name="color_seekbar_thumb_glow_15">#26FFD54F</color>
+    <color name="color_seekbar_thumb_glow_08">#14FFD54F</color>
     <color name="color_screenlight_dialog_bg">#FFFFFF</color>
     <color name="color_screenlight_input_bg">#F4F5F7</color>
     <color name="color_screenlight_input_stroke">#E5E7EB</color>
     <color name="color_screenlight_input_text">#1F2937</color>
     <color name="color_screenlight_label_text">#8E8E93</color>
     <color name="color_screenlight_btn_circle">#252933</color>
-    <color name="color_screenlight_btn_expand_bg">#4D000000</color>
+    <color name="color_screenlight_btn_expand_bg">#22262C</color>
     <color name="color_screenlight_ring_active">#FFD54F</color>
 
     <!-- ScreenLight Preset Color Tokens -->
@@ -63,4 +74,47 @@
     <color name="color_screenlight_preset_green">#4ADE80</color>
     <color name="color_screenlight_preset_purple">#A855F7</color>
     <color name="color_screenlight_preset_coral">#F87171</color>
+
+    <!-- LED Feature Tokens -->
+    <color name="color_led_card_bg">#22262C</color>
+    <color name="color_led_card_stroke">#353534</color>
+    <color name="color_led_input_bg">#353534</color>
+    <color name="color_led_btn_unselected_bg">#353534</color>
+    <color name="color_led_btn_unselected_stroke">#36394A</color>
+    <color name="color_led_btn_selected_bg">#353534</color>
+    <color name="color_led_btn_selected_stroke">#FFD54F</color>
+    <color name="color_led_btn_selected_text">#FFD54F</color>
+    <color name="color_led_btn_unselected_text">#C1C7D0</color>
+    <color name="color_led_ring_active">#FFD54F</color>
+
+    <!-- Setting Feature Tokens -->
+    <color name="color_setting_card_bg">#22262C</color>
+    <color name="color_setting_card_stroke">#36394A</color>
+    <color name="color_setting_card_pressed_bg">#252833</color>
+    <color name="color_setting_card_pressed_stroke">#3B3E4A</color>
+    <color name="color_setting_icon_blue">#2AA5F4</color>
+    <color name="color_setting_icon_orange">#FF8A00</color>
+    <color name="color_setting_icon_yellow">#FFCC00</color>
+    <color name="color_setting_icon_green">#4CAF50</color>
+    <color name="color_setting_icon_purple">#8B5CF6</color>
+    <color name="color_setting_arrow">#8C8C8C</color>
+
+    <!-- Rate Dialog Tokens -->
+    <color name="color_rate_dialog_bg">#1E2128</color>
+    <color name="color_rate_dialog_stroke">#2E333F</color>
+    <color name="color_rate_star_unselected">#8C8C8C</color>
+    <color name="color_rate_star_selected">#FFD54F</color>
+
+    <!-- Flash Alert Feature Tokens -->
+    <color name="color_flash_alert_call">#34C759</color>
+    <color name="color_flash_alert_call_bg">#2634C759</color>
+    <color name="color_flash_alert_sms">#007AFF</color>
+    <color name="color_flash_alert_sms_bg">#26007AFF</color>
+    <color name="color_flash_alert_noti">#FFD54F</color>
+    <color name="color_flash_alert_noti_bg">#26FFD54F</color>
+    <color name="color_flash_alert_card_bg">#22262C</color>
+    <color name="color_flash_alert_card_stroke">#36394A</color>
+    <color name="color_flash_alert_subtext">#8C8C8C</color>
+    <color name="color_flash_alert_chat_bubble">#2C2F38</color>
+    <color name="color_flash_alert_banner_bg">#22262CE6</color>
 </resources>

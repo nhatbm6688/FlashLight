@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_main"
@@ -9,28 +11,119 @@
         android:id="@+id/toolBar"
         layout="@layout/tool_bar" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <!-- Language Item -->
+    <LinearLayout
         android:id="@+id/btnLanguage"
-        style="@style/ItemSetting"
-        android:text="@string/language" />
+        style="@style/StyleSettingCard">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/btnRateUs"
-        style="@style/ItemSetting"
-        android:text="@string/rate_us" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLanguageIcon"
+            style="@style/StyleSettingIcon"
+            app:srcCompat="@drawable/ic_language" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLanguageTitle"
+            style="@style/StyleSettingTitle"
+            android:text="@string/language" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCurrentLanguage"
+            style="@style/StyleSettingValue"
+            tools:text="English" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLanguageArrow"
+            style="@style/StyleSettingArrow"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+    </LinearLayout>
+
+    <!-- Share Item -->
+    <LinearLayout
         android:id="@+id/btnShareApp"
-        style="@style/ItemSetting"
-        android:text="@string/share_app" />
+        style="@style/StyleSettingCard">
 
-    <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivShareIcon"
+            style="@style/StyleSettingIcon"
+            app:srcCompat="@drawable/ic_share" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvShareTitle"
+            style="@style/StyleSettingTitle"
+            android:text="@string/share" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivShareArrow"
+            style="@style/StyleSettingArrow"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+    </LinearLayout>
+
+    <!-- Rate App Item -->
+    <LinearLayout
+        android:id="@+id/btnRateUs"
+        style="@style/StyleSettingCard">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRateIcon"
+            style="@style/StyleSettingIcon"
+            app:srcCompat="@drawable/ic_rate" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRateTitle"
+            style="@style/StyleSettingTitle"
+            android:text="@string/rate_app" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRateArrow"
+            style="@style/StyleSettingArrow"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+    </LinearLayout>
+
+    <!-- Privacy Policy Item -->
+    <LinearLayout
         android:id="@+id/btnPrivacyPolicy"
-        style="@style/ItemSetting"
-        android:text="@string/privacy_policy" />
+        style="@style/StyleSettingCard">
 
-    <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPrivacyIcon"
+            style="@style/StyleSettingIcon"
+            app:srcCompat="@drawable/ic_privacy" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPrivacyTitle"
+            style="@style/StyleSettingTitle"
+            android:text="@string/privacy_policy" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPrivacyArrow"
+            style="@style/StyleSettingArrow"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+    </LinearLayout>
+
+    <!-- Policy Setting Item -->
+    <LinearLayout
         android:id="@+id/btnPolicySetting"
-        style="@style/ItemSetting"
-        android:text="@string/policy_setting" />
+        style="@style/StyleSettingCard">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPolicyIcon"
+            style="@style/StyleSettingIcon"
+            app:srcCompat="@drawable/ic_policy_setting" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPolicyTitle"
+            style="@style/StyleSettingTitle"
+            android:text="@string/policy_setting" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPolicyArrow"
+            style="@style/StyleSettingArrow"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+    </LinearLayout>
+
 </LinearLayout>

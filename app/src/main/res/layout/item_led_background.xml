@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="100dp"
+    android:layout_height="80dp"
+    android:layout_marginEnd="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Thumbnail Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dp"
+        app:cardBackgroundColor="@color/color_led_btn_unselected_bg"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivThumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAddIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_plus"
+            android:tint="@color/yellow"
+            android:visibility="gone" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Selection Highlight Border -->
+    <View
+        android:id="@+id/viewSelectionBorder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_led_bg_item_selector" />
+
+</FrameLayout>

@@ -29,6 +29,25 @@ class SpManager(private val preferences: SharedPreferences) {
             }
             return instance!!
         }
+
+        fun resolveLanguageByCode(code: String): Language {
+            return when (code) {
+                "es" -> Language("es", R.string.spanish, R.mipmap.ic_flag_es)
+                "hi" -> Language("hi", R.string.hindi, R.mipmap.ic_flag_in)
+                "ko" -> Language("ko", R.string.korean, R.mipmap.ic_flag_kr)
+                "ja" -> Language("ja", R.string.japanese, R.mipmap.ic_flag_jp)
+                "de" -> Language("de", R.string.german, R.mipmap.ic_flag_de)
+                "pt" -> Language("pt", R.string.portuguese, R.mipmap.ic_flag_pt)
+                "fr" -> Language("fr", R.string.french, R.mipmap.ic_flag_fr)
+                "it" -> Language("it", R.string.italian, R.mipmap.ic_flag_it)
+                "in" -> Language("in", R.string.indonesian, R.mipmap.ic_flag_id)
+                "vi" -> Language("vi", R.string.vietnamese, R.mipmap.ic_flag_vn)
+                "ru" -> Language("ru", R.string.russian, R.mipmap.ic_flag_ru)
+                "tr" -> Language("tr", R.string.turkish, R.mipmap.ic_flag_tr)
+                "zh-TW" -> Language("zh-TW", R.string.chinese, R.mipmap.ic_flag_cn)
+                else -> Language("en", R.string.english, R.mipmap.ic_flag_us)
+            }
+        }
     }
 
     fun putBoolean(key: String, value: Boolean) {
@@ -73,9 +92,11 @@ class SpManager(private val preferences: SharedPreferences) {
     }
 
     fun getLanguage(): Language {
-        return preferences.getString(Constant.KEY_SP_CURRENT_LANGUAGE, "")?.toLanguageModel()
-            ?: Language("en", R.string.english, R.mipmap.ic_flag_us)
+        val saved = preferences.getString(Constant.KEY_SP_CURRENT_LANGUAGE, "")?.toLanguageModel()
+        val code = saved?.languageCode ?: "en"
+        return resolveLanguageByCode(code)
     }
+
 
     fun setLanguageChosen() {
         preferences.edit { putBoolean(Constant.KEY_SP_LANGUAGE_CHOSEN, true) }
@@ -107,5 +128,75 @@ class SpManager(private val preferences: SharedPreferences) {
 
     fun setScreenLightBrightness(brightness: Int) {
         preferences.edit { putInt(Constant.KEY_SP_SCREEN_LIGHT_BRIGHTNESS, brightness) }
+    }
+
+    fun isCallFlashEnabled(): Boolean =
+        preferences.getBoolean(Constant.KEY_SP_FLASH_CALL_ENABLED, false)
+
+    fun setCallFlashEnabled(enabled: Boolean) {
+        preferences.edit { putBoolean(Constant.KEY_SP_FLASH_CALL_ENABLED, enabled) }
+    }
+
+    fun getCallFlashOnMs(): Long =
+        preferences.getLong(Constant.KEY_SP_FLASH_CALL_ON_MS, Constant.DEFAULT_CALL_FLASH_ON_MS)
+
+    fun setCallFlashOnMs(ms: Long) {
+        preferences.edit { putLong(Constant.KEY_SP_FLASH_CALL_ON_MS, ms) }
+    }
+
+    fun getCallFlashOffMs(): Long =
+        preferences.getLong(Constant.KEY_SP_FLASH_CALL_OFF_MS, Constant.DEFAULT_CALL_FLASH_OFF_MS)
+
+    fun setCallFlashOffMs(ms: Long) {
+        preferences.edit { putLong(Constant.KEY_SP_FLASH_CALL_OFF_MS, ms) }
+    }
+
+    fun isSmsFlashEnabled(): Boolean =
+        preferences.getBoolean(Constant.KEY_SP_FLASH_SMS_ENABLED, false)
+
+    fun setSmsFlashEnabled(enabled: Boolean) {
+        preferences.edit { putBoolean(Constant.KEY_SP_FLASH_SMS_ENABLED, enabled) }
+    }
+
+    fun getSmsFlashOnMs(): Long =
+        preferences.getLong(Constant.KEY_SP_FLASH_SMS_ON_MS, Constant.DEFAULT_SMS_FLASH_ON_MS)
+
+    fun setSmsFlashOnMs(ms: Long) {
+        preferences.edit { putLong(Constant.KEY_SP_FLASH_SMS_ON_MS, ms) }
+    }
+
+    fun getSmsFlashOffMs(): Long =
+        preferences.getLong(Constant.KEY_SP_FLASH_SMS_OFF_MS, Constant.DEFAULT_SMS_FLASH_OFF_MS)
+
+    fun setSmsFlashOffMs(ms: Long) {
+        preferences.edit { putLong(Constant.KEY_SP_FLASH_SMS_OFF_MS, ms) }
+    }
+
+    fun isNotiFlashEnabled(): Boolean =
+        preferences.getBoolean(Constant.KEY_SP_FLASH_NOTI_ENABLED, false)
+
+    fun setNotiFlashEnabled(enabled: Boolean) {
+        preferences.edit { putBoolean(Constant.KEY_SP_FLASH_NOTI_ENABLED, enabled) }
+    }
+
+    fun getNotiFlashOnMs(): Long =
+        preferences.getLong(Constant.KEY_SP_FLASH_NOTI_ON_MS, Constant.DEFAULT_NOTI_FLASH_ON_MS)
+
+    fun setNotiFlashOnMs(ms: Long) {
+        preferences.edit { putLong(Constant.KEY_SP_FLASH_NOTI_ON_MS, ms) }
+    }
+
+    fun getNotiFlashOffMs(): Long =
+        preferences.getLong(Constant.KEY_SP_FLASH_NOTI_OFF_MS, Constant.DEFAULT_NOTI_FLASH_OFF_MS)
+
+    fun setNotiFlashOffMs(ms: Long) {
+        preferences.edit { putLong(Constant.KEY_SP_FLASH_NOTI_OFF_MS, ms) }
+    }
+
+    fun getSelectedNotiApps(): Set<String> =
+        preferences.getStringSet(Constant.KEY_SP_FLASH_NOTI_SELECTED_APPS, emptySet()) ?: emptySet()
+
+    fun setSelectedNotiApps(apps: Set<String>) {
+        preferences.edit { putStringSet(Constant.KEY_SP_FLASH_NOTI_SELECTED_APPS, apps) }
     }
 }

@@ -1,7 +1,7 @@
 <resources>
 
     <style name="Base.Theme.FlashLight" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimaryDark">#FFF4F9</item>
+        <item name="colorPrimaryDark">#111111</item>
         <item name="android:statusBarColor">#FFF4F9</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowFullscreen">false</item>

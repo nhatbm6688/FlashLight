@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import com.af.flashlight.component.main.viewmodel.LightMode
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,6 +32,12 @@ class FlashlightManager @Inject constructor(
 
     var isTorchOn: Boolean = false
         private set
+
+    var currentMode: LightMode = LightMode.FLASHLIGHT
+        private set
+
+    val isLightOn: Boolean
+        get() = isTorchOn || strobeJob?.isActive == true
 
     val isFlashAvailable: Boolean by lazy {
         context.packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)
@@ -64,6 +71,7 @@ class FlashlightManager @Inject constructor(
 
     fun turnOn() {
         stopBlinkingJob()
+        currentMode = LightMode.FLASHLIGHT
         setTorchEnabled(true)
     }
 
@@ -74,6 +82,7 @@ class FlashlightManager @Inject constructor(
 
     fun startSos() {
         stopBlinkingJob()
+        currentMode = LightMode.SOS
         strobeJob = scope.launch {
             try {
                 while (isActive) {
@@ -118,6 +127,7 @@ class FlashlightManager @Inject constructor(
 
     fun startDjStrobe() {
         stopBlinkingJob()
+        currentMode = LightMode.DJ
         strobeJob = scope.launch {
             try {
                 while (isActive) {
@@ -128,6 +138,38 @@ class FlashlightManager @Inject constructor(
                 }
             } finally {
                 setTorchEnabled(false)
+            }
+        }
+    }
+
+    fun startCustomBlink(
+        onMs: Long,
+        offMs: Long,
+        repeatCount: Int = -1,
+        onFinish: (() -> Unit)? = null
+    ) {
+        stopBlinkingJob()
+        strobeJob = scope.launch {
+            try {
+                if (repeatCount == -1) {
+                    while (isActive) {
+                        setTorchEnabled(true)
+                        delay(onMs.coerceAtLeast(50L))
+                        setTorchEnabled(false)
+                        delay(offMs.coerceAtLeast(50L))
+                    }
+                } else {
+                    repeat(repeatCount) {
+                        if (!isActive) return@launch
+                        setTorchEnabled(true)
+                        delay(onMs.coerceAtLeast(50L))
+                        setTorchEnabled(false)
+                        delay(offMs.coerceAtLeast(50L))
+                    }
+                }
+            } finally {
+                setTorchEnabled(false)
+                onFinish?.invoke()
             }
         }
     }

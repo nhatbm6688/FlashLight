@@ -72,6 +72,13 @@ class ScreenLightPlayActivity : BaseActivity<ActivityScreenLightPlayBinding>() {
         }
     }
 
+    override fun onDestroy() {
+        val lp = window.attributes
+        lp.screenBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE
+        window.attributes = lp
+        super.onDestroy()
+    }
+
     companion object {
         private const val EXTRA_COLOR = "EXTRA_COLOR"
         private const val EXTRA_BRIGHTNESS = "EXTRA_BRIGHTNESS"

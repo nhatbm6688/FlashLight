@@ -90,6 +90,7 @@
                     android:id="@+id/ivPowerIcon"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_flashlight"
                     app:tint="@color/gray" />
 
@@ -97,11 +98,13 @@
                     android:id="@+id/tvPowerState"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                    android:gravity="center"
                     android:includeFontPadding="false"
-                    android:letterSpacing="0.05"
                     android:text="@string/state_off"
+                    android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="@color/gray"
                     android:textSize="20sp" />

@@ -47,7 +47,7 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
     override fun initViews() = with(viewBinding) {
         isFromSplash = intent.getBooleanExtra(Constant.KEY_INTENT_FROM_SPLASH, false)
         toolBar.btnBack.isVisible = !isFromSplash
-        toolBar.tvTitle.text = resources.getString(R.string.language)
+        toolBar.tvTitle.text = resources.getString(R.string.choose_language)
         toolBar.btnAction.text = resources.getString(R.string.save)
 
         toolBar.btnAction.visible()
@@ -115,6 +115,7 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
             languageAdapter.setData(ArrayList(it), isFromSplash)
             if (!isFromSplash) {
                 languageAdapter.selectLanguage(spManager.getLanguage().languageCode)
+                selectLanguageModel = languageAdapter.selectedLanguage()
             }
         }.flowWithLifecycle(lifecycle, Lifecycle.State.CREATED).launchIn(lifecycleScope)
 

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main"
+    android:orientation="vertical"
+    android:paddingTop="16dp">
+
+    <!-- Card 1: Incoming Calls -->
+    <LinearLayout
+        android:id="@+id/btnIncomingCalls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="68dp"
+        android:layout_marginStart="@dimen/size15"
+        android:layout_marginEnd="@dimen/size15"
+        android:layout_marginTop="@dimen/size12"
+        android:paddingStart="@dimen/size15"
+        android:paddingEnd="@dimen/size15"
+        android:paddingVertical="@dimen/size12"
+        android:background="@drawable/background_item"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCallIcon"
+            android:layout_width="@dimen/size36"
+            android:layout_height="@dimen/size36"
+            android:layout_marginEnd="@dimen/size15"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_call" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCallTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                android:includeFontPadding="false"
+                android:text="@string/incoming_calls"
+                android:textColor="@color/text_main"
+                android:textSize="@dimen/size16" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCallSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:includeFontPadding="false"
+                android:text="@string/tap_for_more_settings"
+                android:textColor="@color/color_flash_alert_subtext"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCallArrow"
+            style="@style/StyleSettingArrow"
+            app:srcCompat="@drawable/ic_arrow_right" />
+    </LinearLayout>
+
+    <!-- Card 2: SMS -->
+    <LinearLayout
+        android:id="@+id/btnSms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="68dp"
+        android:layout_marginStart="@dimen/size15"
+        android:layout_marginEnd="@dimen/size15"
+        android:layout_marginTop="@dimen/size12"
+        android:paddingStart="@dimen/size15"
+        android:paddingEnd="@dimen/size15"
+        android:paddingVertical="@dimen/size12"
+        android:background="@drawable/background_item"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSmsIcon"
+            android:layout_width="@dimen/size36"
+            android:layout_height="@dimen/size36"
+            android:layout_marginEnd="@dimen/size15"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_sms" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSmsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                android:includeFontPadding="false"
+                android:text="@string/sms"
+                android:textColor="@color/text_main"
+                android:textSize="@dimen/size16" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSmsSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:includeFontPadding="false"
+                android:text="@string/tap_for_more_settings"
+                android:textColor="@color/color_flash_alert_subtext"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSmsArrow"
+            style="@style/StyleSettingArrow"
+            app:srcCompat="@drawable/ic_arrow_right" />
+    </LinearLayout>
+
+    <!-- Card 3: Notification -->
+    <LinearLayout
+        android:id="@+id/btnNotification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="68dp"
+        android:layout_marginStart="@dimen/size15"
+        android:layout_marginEnd="@dimen/size15"
+        android:layout_marginTop="@dimen/size12"
+        android:paddingStart="@dimen/size15"
+        android:paddingEnd="@dimen/size15"
+        android:paddingVertical="@dimen/size12"
+        android:background="@drawable/background_item"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNotiIcon"
+            android:layout_width="@dimen/size36"
+            android:layout_height="@dimen/size36"
+            android:layout_marginEnd="@dimen/size15"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_notification" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNotiTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/plus_jakarta_sans_semi_bold"
+                android:includeFontPadding="false"
+                android:text="@string/notification"
+                android:textColor="@color/text_main"
+                android:textSize="@dimen/size16" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNotiSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:includeFontPadding="false"
+                android:text="@string/tap_for_more_settings"
+                android:textColor="@color/color_flash_alert_subtext"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNotiArrow"
+            style="@style/StyleSettingArrow"
+            app:srcCompat="@drawable/ic_arrow_right" />
+    </LinearLayout>
+
+</LinearLayout>

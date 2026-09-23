@@ -1,5 +1,6 @@
 package com.af.flashlight.component.led.adapter
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,18 +23,25 @@ class LedBackgroundAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: LedBackgroundItem, position: Int) = with(binding) {
-            val isSelected = position == selectedPosition && !item.isAddButton
+            val hasCustomImage = item.isAddButton && item.customUri != null
+            val isAddSlotEmpty = item.isAddButton && item.customUri == null
+
+            val isSelected = position == selectedPosition && !isAddSlotEmpty
             viewSelectionBorder.isSelected = isSelected
 
-            if (item.isAddButton) {
+            if (isAddSlotEmpty) {
+                // Chưa có ảnh tải lên: Hiển thị icon dấu cộng, không có viền chọn
                 ivThumbnail.setImageDrawable(null)
                 ivAddIcon.visibility = View.VISIBLE
                 viewSelectionBorder.visibility = View.GONE
             } else {
+                // Đã có ảnh tải lên đè lên dấu cộng HOẶC là preset background:
+                // Dấu cộng ẩn đi, hiển thị ảnh và viền chọn
                 ivAddIcon.visibility = View.GONE
                 viewSelectionBorder.visibility = View.VISIBLE
 
                 if (item.customUri != null) {
+                    ivThumbnail.setImageURI(null)
                     ivThumbnail.setImageURI(item.customUri)
                 } else if (item.resId != 0) {
                     ivThumbnail.setImageResource(item.resId)
@@ -43,15 +51,38 @@ class LedBackgroundAdapter(
             }
 
             root.setOnClickListener {
-                if (item.isAddButton) {
+                if (isAddSlotEmpty) {
+                    // Chưa có ảnh -> bấm vào để tải ảnh lên từ điện thoại
                     onAddClicked()
+                } else if (hasCustomImage) {
+                    // Đã có ảnh đè lên dấu cộng:
+                    if (selectedPosition == position) {
+                        // Nếu đang chọn ô này mà nhấn tiếp -> mở thư viện để đổi ảnh khác
+                        onAddClicked()
+                    } else {
+                        // Nếu đang chọn preset khác -> nhấn vào để chọn lại ảnh này
+                        val prev = selectedPosition
+                        selectedPosition = position
+                        notifyItemChanged(prev)
+                        notifyItemChanged(selectedPosition)
+                        onBackgroundSelected(item, position)
+                    }
                 } else {
+                    // Preset background thông thường
                     val prev = selectedPosition
                     selectedPosition = position
                     notifyItemChanged(prev)
                     notifyItemChanged(selectedPosition)
                     onBackgroundSelected(item, position)
                 }
+            }
+
+            // Nhấn giữ vào ô custom image cũng mở picker để đổi ảnh nhanh
+            root.setOnLongClickListener {
+                if (hasCustomImage) {
+                    onAddClicked()
+                    true
+                } else false
             }
         }
     }
@@ -83,19 +114,15 @@ class LedBackgroundAdapter(
     }
 
     /**
-     * Insert a new custom image at [insertedPosition] and optionally
-     * remove the stale one at [removedPosition] (if >= 0).
+     * Updates the single custom background image at index 0 and selects it.
      */
-    fun applyAddResult(insertedPosition: Int, removedPosition: Int) {
-        // Remove old item first (index shifts haven't happened yet)
-        if (removedPosition >= 0) {
-            items.removeAt(removedPosition)
-            notifyItemRemoved(removedPosition)
+    fun setCustomBackground(uri: Uri) {
+        if (items.isNotEmpty()) {
+            items[0] = items[0].copy(customUri = uri)
+            val prev = selectedPosition
+            selectedPosition = 0
+            if (prev != 0) notifyItemChanged(prev)
+            notifyItemChanged(0)
         }
-        // Insert new item
-        val prev = selectedPosition
-        selectedPosition = insertedPosition
-        notifyItemChanged(prev)
-        notifyItemInserted(insertedPosition)
     }
 }

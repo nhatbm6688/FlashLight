@@ -90,10 +90,18 @@ class FlashAlertConfigActivity : BaseActivity<ActivityFlashAlertConfigBinding>()
             }
         }
 
+        val isInitiallyEnabled = when (alertType) {
+            FlashAlertType.CALL -> viewModel.uiState.value.isCallEnabled
+            FlashAlertType.SMS -> viewModel.uiState.value.isSmsEnabled
+            FlashAlertType.NOTIFICATION -> viewModel.uiState.value.isNotiEnabled
+        }
+        updateTimingConfigEnabled(isInitiallyEnabled)
+
         switchStatus.setOnCheckedChangeListener { _, isChecked ->
             tvStatusText.text = getString(
                 if (isChecked) R.string.status_colon_on else R.string.status_colon_off
             )
+            updateTimingConfigEnabled(isChecked)
 
             if (isChecked) {
                 when (alertType) {
@@ -204,6 +212,7 @@ class FlashAlertConfigActivity : BaseActivity<ActivityFlashAlertConfigBinding>()
                     viewBinding.tvStatusText.text = getString(
                         if (enabled) R.string.status_colon_on else R.string.status_colon_off
                     )
+                    updateTimingConfigEnabled(enabled)
 
                     val onProgress = (onMs / 100).toInt().coerceIn(1, 20)
                     if (viewBinding.sbFlashingOn.progress != onProgress) {
@@ -272,6 +281,12 @@ class FlashAlertConfigActivity : BaseActivity<ActivityFlashAlertConfigBinding>()
             (badgeBinding.root.layoutParams as? android.view.ViewGroup.MarginLayoutParams)?.marginEnd = 0
             layoutAppPreviews.addView(badgeBinding.root)
         }
+    }
+
+    private fun updateTimingConfigEnabled(enabled: Boolean) = with(viewBinding) {
+        cardFlashingSpeed.alpha = if (enabled) 1.0f else 0.4f
+        sbFlashingOn.isEnabled = enabled
+        sbFlashingOff.isEnabled = enabled
     }
 
     override fun onResume() {

@@ -3,12 +3,14 @@
     <item android:state_selected="true">
         <shape android:shape="rectangle">
             <solid android:color="@color/color_led_btn_selected_bg" />
+            <stroke android:width="@dimen/size2" android:color="@color/yellow"/>
             <corners android:radius="12dp" />
         </shape>
     </item>
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <solid android:color="@color/color_led_btn_selected_bg" />
+            <stroke android:width="@dimen/size2" android:color="@color/yellow"/>
             <corners android:radius="12dp" />
         </shape>
     </item>

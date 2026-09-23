@@ -9,9 +9,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-/** Maximum number of custom (user-picked) background images allowed in memory. */
-private const val MAX_CUSTOM_BACKGROUNDS = 5
-
 data class LedEditorState(
     val text: String = "HELLO WORLD",
     val color: Int = 0,               // 0 = not yet resolved (resolved in Fragment using context)
@@ -55,7 +52,7 @@ class LedViewModel : ViewModel() {
         val items = _state.value.backgroundItems
         if (position < 0 || position >= items.size) return
         val item = items[position]
-        if (item.isAddButton) return
+        if (item.isAddButton && item.customUri == null) return
 
         if (item.customUri != null) {
             _state.value = _state.value.copy(
@@ -69,49 +66,20 @@ class LedViewModel : ViewModel() {
     }
 
     /**
-     * Add a custom background image picked by the user.
-     *
-     * Rules:
-     * - Custom images are always inserted right after the "Add" button (index 1).
-     * - If the number of custom images would exceed [MAX_CUSTOM_BACKGROUNDS],
-     *   the OLDEST custom image (furthest from index 1) is removed first.
-     *   This keeps memory bounded while preserving the most recently added images.
-     *
-     * @return [AddCustomResult] describing what changed so the Fragment can update the adapter.
+     * Set or update the single custom background image uploaded from the phone.
+     * Overlays the "+" card at index 0 and selects it.
      */
-    fun addCustomBackground(uri: Uri): AddCustomResult {
+    fun setCustomBackground(uri: Uri) {
         val items = _state.value.backgroundItems.toMutableList()
+        if (items.isEmpty()) return
 
-        val customCount = items.count { it.customUri != null }
-        var removedIndex = -1
-
-        if (customCount >= MAX_CUSTOM_BACKGROUNDS) {
-            // Remove the oldest custom image (last custom item in the list)
-            removedIndex = items.indexOfLast { it.customUri != null }
-            if (removedIndex >= 0) items.removeAt(removedIndex)
-        }
-
-        val newItem = LedBackgroundItem(
-            id = System.currentTimeMillis().toInt(),
-            customUri = uri,
-            isSelected = true
-        )
-        // Always insert right after the "Add" button at index 0
-        items.add(1, newItem)
+        items[0] = items[0].copy(customUri = uri)
 
         _state.value = _state.value.copy(
             backgroundItems = items,
             bgRes = 0,
             bgUri = uri,
-            selectedBgPosition = 1
+            selectedBgPosition = 0
         )
-
-        return AddCustomResult(insertedPosition = 1, removedPosition = removedIndex)
     }
 }
-
-/** Result from [LedViewModel.addCustomBackground] for adapter notification. */
-data class AddCustomResult(
-    val insertedPosition: Int,
-    val removedPosition: Int  // -1 if nothing was removed
-)

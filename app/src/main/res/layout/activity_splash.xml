@@ -35,6 +35,8 @@
             android:layout_width="@dimen/size113"
             android:layout_height="@dimen/size113"
             android:src="@drawable/logo_splash"
+            app:riv_border_color="@color/yellow"
+            app:riv_border_width="@dimen/size2"
             app:riv_corner_radius="@dimen/size20" />
 
         <androidx.appcompat.widget.AppCompatTextView

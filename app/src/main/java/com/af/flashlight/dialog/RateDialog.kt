@@ -2,6 +2,7 @@ package com.af.flashlight.dialog
 
 import android.content.Context
 import android.widget.RatingBar.OnRatingBarChangeListener
+import android.widget.Toast
 import com.af.flashlight.R
 import com.af.flashlight.base.dialog.BaseDialog
 import com.af.flashlight.databinding.DialogRateBinding
@@ -26,8 +27,14 @@ class RateDialog(private val context: Context) : BaseDialog<DialogRateBinding>(c
         }
 
         btnSubmit.setOnClickListener {
+            val starCount = this@RateDialog.rating.toInt()
             dismiss()
-            context.openAppInStore()
+            if (starCount in 1..3) {
+                FeedbackDialog(context).show()
+            } else {
+                context.openAppInStore()
+                Toast.makeText(context, R.string.thanks_for_feedback, Toast.LENGTH_SHORT).show()
+            }
         }
 
         btnClose.setOnClickListener {

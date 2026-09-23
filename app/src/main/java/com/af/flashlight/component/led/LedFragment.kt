@@ -50,8 +50,8 @@ class LedFragment : BaseFragment<FragmentLedBinding>() {
         ActivityResultContracts.GetContent()
     ) { uri: Uri? ->
         uri ?: return@registerForActivityResult
-        val result = viewModel.addCustomBackground(uri)
-        backgroundAdapter.applyAddResult(result.insertedPosition, result.removedPosition)
+        viewModel.setCustomBackground(uri)
+        backgroundAdapter.setCustomBackground(uri)
         applyBackground(bgRes = 0, bgUri = uri)
     }
 
@@ -75,6 +75,9 @@ class LedFragment : BaseFragment<FragmentLedBinding>() {
         // Ensure ViewModel has a default color (yellow) on very first run
         if (viewModel.state.value.color == 0) {
             viewModel.updateColor(colorYellow)
+        }
+        if (viewModel.state.value.text == "HELLO WORLD") {
+            viewModel.updateText(getString(R.string.default_led_text))
         }
 
         setupColorCircles()
@@ -213,8 +216,7 @@ class LedFragment : BaseFragment<FragmentLedBinding>() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
                 if (suppressTextWatcher) return
-                val input = s?.toString()?.trim()
-                val text = if (input.isNullOrBlank()) getString(R.string.default_led_text) else s.toString()
+                val text = s?.toString() ?: ""
                 viewModel.updateText(text)
                 viewLedPreview.text = text
             }
@@ -339,9 +341,10 @@ class LedFragment : BaseFragment<FragmentLedBinding>() {
 
     private fun openPlayMode() {
         val s = viewModel.state.value
+        val textToPlay = s.text.ifBlank { getString(R.string.default_led_text) }
         LedPlayActivity.start(
             context = requireContext(),
-            text = s.text,
+            text = textToPlay,
             color = if (s.color == 0) colorYellow else s.color,
             fontSize = s.fontSize,
             speed = s.speed,

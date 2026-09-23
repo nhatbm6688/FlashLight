@@ -85,6 +85,11 @@
     <string name="rate_message">Your feedback helps us improve. Please take a moment to rate your experience.</string>
     <string name="rate_us_now">Rate Us Now</string>
     <string name="thanks_for_feedback">Thanks for your feedback</string>
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_message">Your feedback helps us improve. Please let us know how we can make your experience better.</string>
+    <string name="feedback_hint">Enter your feedback here…</string>
+    <string name="feedback_empty_warning">Please enter your feedback</string>
+    <string name="send">Send</string>
 
     <string name="load_ad_fail">The ad failed to load, please try again later</string>
     <string name="premium_short_dramas">Premium Short Dramas</string>

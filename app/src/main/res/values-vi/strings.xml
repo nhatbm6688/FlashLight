@@ -81,6 +81,11 @@
     <string name="rate_message">Ý kiến của bạn giúp chúng tôi cải thiện ứng dụng ngày một tốt hơn. Hãy dành ít phút đánh giá trải nghiệm nhé.</string>
     <string name="rate_us_now">Đánh giá ngay</string>
     <string name="thanks_for_feedback">Cảm ơn đánh giá của bạn</string>
+    <string name="feedback_title">Phản hồi</string>
+    <string name="feedback_message">Ý kiến của bạn giúp chúng tôi cải thiện ứng dụng ngày một tốt hơn.</string>
+    <string name="feedback_hint">Nhập phản hồi của bạn tại đây…</string>
+    <string name="feedback_empty_warning">Vui lòng nhập nội dung phản hồi</string>
+    <string name="send">Gửi</string>
 
     <string name="force_update_title">Yêu cầu cập nhật</string>
     <string name="force_update_message">Đã có phiên bản mới của ứng dụng. Vui lòng cập nhật để tiếp tục sử dụng dịch vụ tốt nhất.</string>

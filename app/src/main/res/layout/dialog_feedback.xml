@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_black_radius"
+    android:paddingTop="@dimen/size16"
+    android:paddingBottom="@dimen/size24">
+
+    <!-- Close Button Top Right -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnClose"
+        android:layout_width="@dimen/size32"
+        android:layout_height="@dimen/size32"
+        android:layout_marginTop="@dimen/size4"
+        android:layout_marginEnd="@dimen/size16"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/size6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close" />
+
+    <!-- Title -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size24"
+        android:layout_marginTop="@dimen/size12"
+        android:gravity="center"
+        android:text="@string/feedback_title"
+        android:textColor="@color/text_main"
+        android:textSize="@dimen/size18"
+        app:fontFamily="@font/plus_jakarta_sans_semi_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Subtitle / Guide Message -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size24"
+        android:layout_marginTop="@dimen/size8"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/feedback_message"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/size14"
+        app:fontFamily="@font/plus_jakarta_sans_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <!-- Feedback EditText Box -->
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etFeedback"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="@dimen/size20"
+        android:layout_marginTop="@dimen/size16"
+        android:background="@drawable/bg_led_input_box"
+        android:gravity="top|start"
+        android:hint="@string/feedback_hint"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/text_gray"
+        android:textSize="14sp"
+        app:fontFamily="@font/plus_jakarta_sans_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMessage" />
+
+    <!-- Button Row (Cancel + Send) -->
+    <LinearLayout
+        android:id="@+id/layoutButtons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size20"
+        android:layout_marginTop="@dimen/size20"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFeedback">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            style="@style/StyleTransparentButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size44"
+            android:layout_marginEnd="@dimen/size6"
+            android:layout_marginStart="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_transparent_selector"
+            android:text="@string/cancel"
+            android:textColor="@color/text_main" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSend"
+            style="@style/StyleSubmitButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size44"
+            android:layout_marginStart="@dimen/size6"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:text="@string/send" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
